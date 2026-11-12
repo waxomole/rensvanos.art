@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#fbfaf7"/>
+  <g fill="none" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 430h340"/>
+    <path d="M160 430V180h80v250"/>
+    <path d="M150 180h100"/>
+    <path d="M168 180V120l32-30 32 30v60"/>
+    <path d="M160 120h80"/>
+    <path d="M186 90h28v-24h-28z"/>
+    <path d="M200 66V40M200 40l16 8-16 8"/>
+    <path d="M172 200h56M172 230h56M172 260h56M172 290h56M172 320h56M172 350h56M172 380h56"/>
+    <path d="M186 214h24v26h-24zM186 274h24v26h-24zM186 334h24v26h-24z"/>
+    <path d="M200 430v-60"/>
+    <path d="M188 430l12-40 12 40"/>
+    <path d="M100 430V330h44v100M256 430V350h44v80"/>
+    <path d="M108 348h28M108 374h28M108 400h28M264 366h28M264 392h28"/>
+    <path d="M122 330V300l16-14 16 14v30M268 350v-24l14-12 14 12v24"/>
+    <path d="M60 430v-110h30v110M310 430v-90h30v90"/>
+    <path d="M68 340h14M68 366h14M68 392h14M318 356h14M318 382h14"/>
+    <path d="M46 280c14 22 14 44 0 66M354 270c-14 24-14 46 0 70" stroke-width="1.4"/>
+    <path d="M70 452c40-8 80-8 130 0s90 8 130 0" stroke-width="1.4"/>
+  </g>
+</svg>
