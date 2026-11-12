@@ -47,12 +47,20 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [ ] Enable **Enforce HTTPS** once GitHub issues the certificate
 - [ ] Optional: privacy/cookie statement if analytics get added
 
+## 6. Security (hardened in this PR)
+
+- [x] `robots.txt` blocks known AI/scraping bots (GPTBot, ClaudeBot, CCBot, Bytespider, PerplexityBot, Meta, e.a.) while search engines stay welcome
+- [x] `noai, noimageai` robots meta on both language versions
+- [x] Email address obfuscated — assembled by JavaScript in the browser, invisible to source-scraping harvesters
+- [x] `.well-known/security.txt` added
+- [ ] Optional, stronger: proxy the domain through Cloudflare (free tier) with Bot Fight Mode once DNS is on Hostinger — GitHub Pages itself cannot set security headers or firewall rules
+
 ## 6. What can be done in the meantime (no waiting required)
 
 - [x] Site structure, liquid-glass styling, Dutch copy drafts — **done in this PR**
 - [x] Lightbox detail view on gallery cards (click to enlarge, arrow-key navigation, per-work enquiry mail link) — **built**
 - [x] English version + NL/EN language switch (`en/index.html`) — **built**
-- [x] Instagram feed section — embed mechanism **built**; goes live once post URLs are added to `INSTAGRAM_POSTS` in `js/artwork.js`
+- [x] Instagram feed section — **live** with two embedded posts; add more URLs to `INSTAGRAM_POSTS` in `js/artwork.js`. Note: embeds always show the first slide of a carousel; specific carousel images need their own files
 - [x] Shop-style per-work detail (title, year, availability, "enquire" mail link) — **built into the lightbox**
 - [x] Open Graph/social preview image (`og-image.png`) — **built**; replace with a real artwork version once scans exist
 - [x] SEO polish — sitemap, robots.txt, canonical/hreflang, JSON-LD, apple-touch-icon — **built**

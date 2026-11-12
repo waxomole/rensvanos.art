@@ -1,0 +1,4 @@
+Contact: https://rensvanos.art/#commissies
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://rensvanos.art/.well-known/security.txt
