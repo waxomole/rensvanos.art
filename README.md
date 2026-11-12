@@ -35,21 +35,3 @@ De sectie "Vers van de tekentafel" verschijnt zodra er posts in staan; leeg bete
 ## Sociale preview vervangen
 
 Zodra er echt werk beschikbaar is: maak een nieuwe `og-image.png` van 1200×630 met een sterk werk en de naam, en vervang het bestand in de repo-root.
-
-## Publiceren via GitHub Pages
-
-1. GitHub-repo → **Settings → Pages**.
-2. Source: **Deploy from a branch**, branch `main`, map `/ (root)`.
-3. Daarna staat de site op `https://waxomole.github.io/rensvanos.art/`.
-
-## Eigen domein (Hostinger)
-
-1. In GitHub Pages-instellingen een custom domain invullen (`rensvanos.art`) — dit maakt een `CNAME`-bestand aan, of voeg dat bestand zelf toe met daarin `rensvanos.art`.
-2. In Hostinger DNS (domeinpanel → DNS Zone):
-   - `A`-records voor `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` voor `www` → `waxomole.github.io`
-3. Wacht tot DNS propageert en vink **Enforce HTTPS** aan zodra het certificaat klaar is.
-
-## E-mail-alias (Hostinger)
-
-Maak in het Hostinger-panel (Emails → je domein → Aliases/Forwarders) de alias `prints@rensvanos.art` aan en forward deze naar je gewenste inbox.
