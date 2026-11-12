@@ -50,10 +50,10 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 ## 6. What can be done in the meantime (no waiting required)
 
 - [x] Site structure, liquid-glass styling, Dutch copy drafts — **done in this PR**
-- [ ] Lightbox view on gallery cards (click to enlarge) — can be built now, wired to real images later
-- [ ] English version / language switch — useful for international print buyers
-- [ ] Instagram feed section — possible via embeds once a few post links are collected
-- [ ] Shop-style per-work pages (title, story, price, "enquire" mail link)
-- [ ] Open Graph/social preview image so shared links show art
-- [ ] Favicon refinement once a monogram exists
-- [ ] Sitemap + meta polish for search engines
+- [x] Lightbox detail view on gallery cards (click to enlarge, arrow-key navigation, per-work enquiry mail link) — **built**
+- [x] English version + NL/EN language switch (`en/index.html`) — **built**
+- [x] Instagram feed section — embed mechanism **built**; goes live once post URLs are added to `INSTAGRAM_POSTS` in `js/artwork.js`
+- [x] Shop-style per-work detail (title, year, availability, "enquire" mail link) — **built into the lightbox**
+- [x] Open Graph/social preview image (`og-image.png`) — **built**; replace with a real artwork version once scans exist
+- [x] SEO polish — sitemap, robots.txt, canonical/hreflang, JSON-LD, apple-touch-icon — **built**
+- [ ] Favicon refinement once a monogram exists (temporary serif "R" icon in place)

@@ -6,15 +6,35 @@ Showcase-website voor Rens van Os — lijnkunst van architectuur en fantastische
 
 - `index.html` — de volledige pagina (hero, uitgelicht werk, galerij, over mij, commissies & prints, contact)
 - `css/style.css` — styling (liquid glass: gefroste panelen met backdrop-blur)
-- `js/artwork.js` — manifest van de galerij (titel, tag, alt-tekst, bestandspad)
-- `js/main.js` — galerij-rendering, scroll-gedrag en reveal-animaties
+- `js/artwork.js` — manifest van de galerij (titel NL/EN, tag, jaar, status, alt-tekst) plus `INSTAGRAM_POSTS`
+- `js/main.js` — galerij-rendering, lightbox met werkdetail en aanvraag-link, Instagram-embeds, scroll-gedrag en reveal-animaties
+- `en/index.html` — Engelstalige versie (schakelaar NL/EN in de navigatie)
 - `art/` — kunstwerken; bevat nu placeholder-SVG's
+- `og-image.png` — sociale preview (1200×630) voor gedeelde links
+- `apple-touch-icon.png` — icoon voor iOS-thuisscherm
+- `sitemap.xml` + `robots.txt` — zoekmachine-indicering
 
 ## Eigen kunst toevoegen
 
 1. Plaats je scans/foto's in `art/`, bijv. `art/grachtenpanden.jpg` (liefst 4:5-verhouding, ~1600px breed).
-2. Pas `js/artwork.js` aan: zet `src` naar jouw bestand en werk `title`, `tag` en `alt` bij.
+2. Pas `js/artwork.js` aan: zet `src` naar jouw bestand en werk `title`/`titleEn`, `tag`/`tagEn`, `year`, `status` (`print`, `origineel`, `beide` of `uitverkocht`) en `alt`/`altEn` bij.
 3. Verwijder de bijbehorende placeholder-SVG wanneer alle echte werk erin staat.
+
+## Instagram-embeds tonen
+
+Zet in `js/artwork.js` post-URL's of shortcodes in `INSTAGRAM_POSTS`, bijv.:
+
+```js
+const INSTAGRAM_POSTS = [
+  "https://www.instagram.com/p/DXXXXXXXXXX/"
+];
+```
+
+De sectie "Vers van de tekentafel" verschijnt zodra er posts in staan; leeg betekent verborgen.
+
+## Sociale preview vervangen
+
+Zodra er echt werk beschikbaar is: maak een nieuwe `og-image.png` van 1200×630 met een sterk werk en de naam, en vervang het bestand in de repo-root.
 
 ## Publiceren via GitHub Pages
 
