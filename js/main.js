@@ -42,7 +42,8 @@
 
   var grid = document.getElementById("galleryGrid");
   if (grid && typeof ARTWORKS !== "undefined") {
-    ARTWORKS.forEach(function (art, index) {
+    var limit = parseInt(grid.getAttribute("data-limit"), 10) || ARTWORKS.length;
+    ARTWORKS.slice(0, limit).forEach(function (art, index) {
       var card = document.createElement("article");
       card.className = "art-card glass reveal";
       card.setAttribute("role", "button");
