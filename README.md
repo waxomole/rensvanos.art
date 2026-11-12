@@ -35,3 +35,12 @@ De sectie "Vers van de tekentafel" verschijnt zodra er posts in staan; leeg bete
 ## Sociale preview vervangen
 
 Zodra er echt werk beschikbaar is: maak een nieuwe `og-image.png` van 1200×630 met een sterk werk en de naam, en vervang het bestand in de repo-root.
+
+## Bots & beveiliging
+
+- `robots.txt` blokkeert bekende AI-/scrape-bots (GPTBot, ClaudeBot, CCBot, Bytespider, PerplexityBot, e.a.); zoekmachines zoals Google en Bing blijven welkom.
+- Beide pagina's sturen `noai, noimageai` via de robots-meta-tag als extra signaal.
+- Het e-mailadres staat nergens leesbaar in de bron: links worden pas in de browser door JavaScript in elkaar gezet (`data-mail-user`/`data-mail-domain`). Zonder JavaScript staat er een versluierde tekst.
+- Een Content-Security-Policy (meta) staat scripts, styles, fonts en frames alleen van vertrouwde bronnen toe; `strict-origin-when-cross-origin` beperkt wat de referrer lekt.
+- `.well-known/security.txt` beschrijft het meldpunt.
+- Let op: `robots.txt` is een verzoek, geen slot — kwaadwillende bots kunnen het negeren. GitHub Pages laat geen eigen HTTP-headers of firewall-regels toe; wie dat wil kan het domein later via Cloudflare proxyen met bot-fight-mode.

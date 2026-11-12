@@ -67,4 +67,7 @@ const ARTWORKS = [
   }
 ];
 
-const INSTAGRAM_POSTS = [];
+const INSTAGRAM_POSTS = [
+  "https://www.instagram.com/p/DBUVVBWNnav/",
+  "https://www.instagram.com/p/CX3g2r8sKro/"
+];

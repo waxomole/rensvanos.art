@@ -140,7 +140,7 @@
   var instaSection = document.getElementById("instagram");
   if (instaGrid && typeof INSTAGRAM_POSTS !== "undefined" && INSTAGRAM_POSTS.length) {
     INSTAGRAM_POSTS.forEach(function (post) {
-      var code = String(post).split("/").filter(Boolean).pop();
+      var code = String(post).split(/[?#]/)[0].split("/").filter(Boolean).pop();
       var frame = document.createElement("iframe");
       frame.src = "https://www.instagram.com/p/" + code + "/embed";
       frame.loading = "lazy";
@@ -154,6 +154,14 @@
     });
     if (instaSection) instaSection.hidden = false;
   }
+
+  document.querySelectorAll("[data-mail-user]").forEach(function (link) {
+    var addr = link.getAttribute("data-mail-user") + "@" + link.getAttribute("data-mail-domain");
+    var subject = link.getAttribute("data-mail-subject");
+    link.href = "mailto:" + addr + (subject ? "?subject=" + encodeURIComponent(subject) : "");
+    var label = link.querySelector(".mail-link__text");
+    if (label) label.textContent = addr;
+  });
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
