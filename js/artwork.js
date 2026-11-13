@@ -69,5 +69,8 @@ const ARTWORKS = [
 
 const INSTAGRAM_POSTS = [
   "https://www.instagram.com/p/DBUVVBWNnav/",
-  "https://www.instagram.com/p/CX3g2r8sKro/"
+  "https://www.instagram.com/p/CX3g2r8sKro/",
+  "https://www.instagram.com/p/Demfy2ODBVU/",
+  "https://www.instagram.com/p/DeCU6ixDH1o",
+  "https://www.instagram.com/p/DbNah1Qs9XK/"
 ];
