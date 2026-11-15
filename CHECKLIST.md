@@ -74,5 +74,5 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Calligraphy headings (Great Vibes) for all titles/headers + signature
 - [x] Fonts self-hosted (fontsource) — stricter CSP, no Google Fonts dependency
 - [x] GitHub Actions deploy workflow added — **action needed: Settings → Pages → Source → "GitHub Actions" after merge**
-- [ ] Choose the definitive palette (iterate on request; new palettes are one block in tokens.css)
+- [x] Definitive palette chosen: **Delfts & Mist** (`delft`); `ink` remains available as a one-attribute switch
 - [ ] Calligraphy font review — alternatives (e.g. Alex Brush, Parisienne) are a one-line swap
