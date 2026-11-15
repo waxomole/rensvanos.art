@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { PAGE_PATHS, SITE, type PageId } from "../data/site";
+import { useAutoHideHeader } from "../hooks/useAutoHideHeader";
 import { useEscapeKey } from "../hooks/useEscapeKey";
 import { useT } from "../i18n/LangContext";
-import { InstagramIcon } from "./Aurora";
-import { LangSwitch } from "./LangSwitch";
 
 const NAV_ITEMS = [
   { page: "work", labelKey: "work" },
@@ -11,39 +10,40 @@ const NAV_ITEMS = [
   { page: "commissions", labelKey: "commissions" },
 ] as const;
 
+interface SiteNavProps {
+  page: PageId;
+  open: boolean;
+  onToggle: (open: boolean) => void;
+}
+
 /**
- * Fixed glass pill with brand + links on desktop; collapses to a compact
- * corner pill with a glass burger button below 700px. The dropdown menu
- * closes on link tap, outside tap or Escape.
+ * Glass pill with brand + page links on desktop; below 700px a compact
+ * corner pill with a glass burger button and a dropdown menu. Scrolling
+ * down fades the pill out; scrolling up brings it back.
  */
-export function SiteNav({ page }: { page: PageId }) {
+export function SiteNav({ page, open, onToggle }: SiteNavProps) {
   const t = useT();
-  const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const hidden = useAutoHideHeader(open);
 
-  useEscapeKey(open, () => setOpen(false));
-
-  useEffect(() => {
-    const onScroll = () => {
-      navRef.current?.classList.toggle("is-scrolled", window.scrollY > 40);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  useEscapeKey(open, () => onToggle(false));
 
   useEffect(() => {
     if (!open) return;
     const onClick = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) setOpen(false);
+      if (navRef.current && !navRef.current.contains(event.target as Node)) onToggle(false);
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, [open]);
+  }, [open, onToggle]);
+
+  const classes = ["nav"];
+  if (open) classes.push("is-open");
+  if (hidden) classes.push("is-hidden");
 
   return (
-    <nav className={open ? "nav is-open" : "nav"} id="nav" ref={navRef}>
-      <a className="nav__brand" href={PAGE_PATHS.nl.home} onClick={() => setOpen(false)}>
+    <nav className={classes.join(" ")} id="nav" ref={navRef}>
+      <a className="nav__brand" href={PAGE_PATHS.nl.home} onClick={() => onToggle(false)}>
         {SITE.name}
       </a>
 
@@ -53,7 +53,7 @@ export function SiteNav({ page }: { page: PageId }) {
         aria-expanded={open}
         aria-controls="navMenu"
         aria-label={t.nav.menu}
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => onToggle(!open)}
       >
         <span aria-hidden="true" />
         <span aria-hidden="true" />
@@ -66,22 +66,11 @@ export function SiteNav({ page }: { page: PageId }) {
             key={itemPage}
             href={PAGE_PATHS.nl[itemPage]}
             className={page === itemPage ? "is-active" : undefined}
-            onClick={() => setOpen(false)}
+            onClick={() => onToggle(false)}
           >
             {t.nav[labelKey]}
           </a>
         ))}
-        <LangSwitch currentPage={page} onNavigate={() => setOpen(false)} />
-        <a
-          href={SITE.instagram}
-          target="_blank"
-          rel="noopener"
-          className="nav__insta"
-          aria-label={t.nav.instagram}
-          onClick={() => setOpen(false)}
-        >
-          <InstagramIcon />
-        </a>
       </div>
     </nav>
   );
