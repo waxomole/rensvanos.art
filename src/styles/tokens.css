@@ -1,0 +1,66 @@
+/*
+ * Design tokens.
+ *
+ * Two-tone branding palettes — switch site-wide by changing the
+ * `data-palette` attribute on <html> in every page:
+ *
+ *   data-palette="ink"   → "Inkt & Perkament": warm cream paper, sepia-black ink
+ *   data-palette="delft" → "Delfts & Mist":    porcelain paper, Delft-blue slate ink
+ */
+
+:root,
+html[data-palette="ink"] {
+  --paper: #f6f2ea;
+  --ink: #23201b;
+  --ink-rgb: 35, 32, 27;
+  --ink-soft: #57524a;
+  --ink-faint: #948d81;
+  --on-ink: #f7f5f0;
+
+  --blob-1: #eaddc4;
+  --blob-2: #e3e0d3;
+  --blob-3: #e8d8d4;
+
+  --glass-bg: rgba(255, 253, 248, 0.42);
+  --glass-bg-strong: rgba(255, 253, 248, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --nav-scrolled-bg: rgba(255, 253, 248, 0.8);
+  --control-bg: rgba(255, 253, 248, 0.55);
+  --control-bg-hover: rgba(255, 253, 248, 0.8);
+  --lightbox-bg: rgba(255, 253, 248, 0.75);
+  --surface: #fbfaf7;
+}
+
+html[data-palette="delft"] {
+  --paper: #eef0f3;
+  --ink: #1f2a33;
+  --ink-rgb: 31, 42, 51;
+  --ink-soft: #46565f;
+  --ink-faint: #84949e;
+  --on-ink: #f2f5f7;
+
+  --blob-1: #d8e3ea;
+  --blob-2: #dfe5e1;
+  --blob-3: #e2dbe6;
+
+  --glass-bg: rgba(252, 253, 255, 0.42);
+  --glass-bg-strong: rgba(252, 253, 255, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --nav-scrolled-bg: rgba(252, 253, 255, 0.8);
+  --control-bg: rgba(252, 253, 255, 0.55);
+  --control-bg-hover: rgba(252, 253, 255, 0.8);
+  --lightbox-bg: rgba(252, 253, 255, 0.75);
+  --surface: #fafbfc;
+}
+
+:root {
+  --glass-shadow: 0 8px 32px rgba(var(--ink-rgb), 0.12);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --error: #8c2f2f;
+
+  /* Calligraphy for titles & headers — echoes the penmanship of the artwork. */
+  --font-script: "Great Vibes", "Snell Roundhand", "Apple Chancery", cursive;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+}

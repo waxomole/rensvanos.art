@@ -1,49 +1,73 @@
 # rensvanos.art
 
-Showcase-website voor Rens van Os — lijnkunst van architectuur en fantastische plaatsen. Statische site (HTML/CSS/JS), geen build-stap vereist.
+Showcase-website voor Rens van Os — lijnkunst van architectuur en fantastische plaatsen.
+Gebouwd met **React 19 + TypeScript + Vite 8** als multi-page app: elke pagina is een echt
+HTML-bestand (eigen meta, canonical, hreflang), met React-componenten voor alle interactiviteit.
+
+## Ontwikkelen
+
+```bash
+npm install
+npm run dev        # lokale dev-server
+npm run build      # type-check + productiebuild naar dist/
+npm run preview    # bekijk de build lokaal
+npm run lint       # oxlint
+```
 
 ## Structuur
 
-- `index.html` — home: hero, quote, uitgelicht werk, galerij-teaser
-- `werk.html` — volledige galerij + Instagram-sectie
-- `over-mij.html` — over Rens
-- `commissies.html` — prints, originelen en commissies, met aanvraagformulier (opent een kant-en-klare e-mail via je eigen mailprogramma; het adres staat geobfusceerd in de bron)
-- `en/` — de Engelstalige tweelingpagina's (`index`, `work`, `about`, `commissions`); de taalschakelaar in de navigatie gaat naar de gelijkwaardige pagina
-- `css/style.css` — styling (liquid glass: gefroste panelen met backdrop-blur, incl. inkt-vlekken en -wassing in de achtergrond)
-- `js/artwork.js` — manifest van de galerij (titel NL/EN, tag, jaar, status, alt-tekst) plus `INSTAGRAM_POSTS`
-- `js/main.js` — galerij-rendering (met optionele `data-limit` op de grid), lightbox met werkdetail en aanvraag-link, Instagram-embeds, burgermenu op mobiel (glas-knop in de hoek), aanvraagformulier, scroll-gedrag en reveal-animaties
-- `art/` — kunstwerken; bevat nu placeholder-SVG's
-- `og-image.png` — sociale preview (1200×630) voor gedeelde links
-- `apple-touch-icon.png` — icoon voor iOS-thuisscherm
-- `sitemap.xml` + `robots.txt` — zoekmachine-indicering
-
-## Eigen kunst toevoegen
-
-1. Plaats je scans/foto's in `art/`, bijv. `art/grachtenpanden.jpg` (liefst 4:5-verhouding, ~1600px breed).
-2. Pas `js/artwork.js` aan: zet `src` naar jouw bestand en werk `title`/`titleEn`, `tag`/`tagEn`, `year`, `status` (`print`, `origineel`, `beide` of `uitverkocht`) en `alt`/`altEn` bij.
-3. Verwijder de bijbehorende placeholder-SVG wanneer alle echte werk erin staat.
-
-## Instagram-embeds tonen
-
-Zet in `js/artwork.js` post-URL's of shortcodes in `INSTAGRAM_POSTS`, bijv.:
-
-```js
-const INSTAGRAM_POSTS = [
-  "https://www.instagram.com/p/DXXXXXXXXXX/"
-];
+```
+├── index.html / werk.html / over-mij.html / commissies.html   NL-pagina's (Vite-entries)
+├── en/…                                                       EN-tweelingpagina's
+├── public/            statische assets (art/, og-image, robots.txt, sitemap, CNAME, security.txt)
+├── src/
+│   ├── App.tsx                paginaschakelaar
+│   ├── entries/               8 entry-points (koppelen html ↔ React)
+│   ├── pages/                 HomePage, WorkPage, AboutPage, CommissionsPage
+│   ├── components/            SiteNav (burger), Lightbox, GalleryGrid, EnquiryForm, MailLink, …
+│   ├── data/                  artworks.ts (manifest + Instagram), site.ts (contact, paden)
+│   ├── i18n/                  dictionary.ts — álle sitetekst NL/EN op één plek, type-checked
+│   ├── hooks/                 useReveal, useEscapeKey, useBodyScrollLock
+│   ├── lib/                   email.ts (mailto opbouw), assets.ts
+│   └── styles/                tokens.css (paletten), base, components, pages
+└── .github/workflows/deploy-pages.yml   build & deploy naar GitHub Pages
 ```
 
-De sectie "Vers van de tekentafel" verschijnt zodra er posts in staan; leeg betekent verborgen.
+## Branding: palet kiezen
 
-## Sociale preview vervangen
+Twee tweekleurige paletten zijn ingebouwd. Wissel door in álle 8 html-bestanden het
+`data-palette`-attribuut op `<html>` te veranderen:
 
-Zodra er echt werk beschikbaar is: maak een nieuwe `og-image.png` van 1200×630 met een sterk werk en de naam, en vervang het bestand in de repo-root.
+- `data-palette="ink"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`) — huidige standaard
+- `data-palette="delft"` — **Delfts & Mist**: porselein (`#eef0f3`) met Delfts blauwleisteen (`#1f2a33`)
 
-## Bots & beveiliging
+Alle kleuren lopen via custom properties in `src/styles/tokens.css`; een nieuw palet = één nieuw blok daar.
 
-- `robots.txt` blokkeert bekende AI-/scrape-bots (GPTBot, ClaudeBot, CCBot, Bytespider, PerplexityBot, e.a.); zoekmachines zoals Google en Bing blijven welkom.
-- Beide pagina's sturen `noai, noimageai` via de robots-meta-tag als extra signaal.
-- Het e-mailadres staat nergens leesbaar in de bron: links worden pas in de browser door JavaScript in elkaar gezet (`data-mail-user`/`data-mail-domain`). Zonder JavaScript staat er een versluierde tekst.
-- Een Content-Security-Policy (meta) staat scripts, styles, fonts en frames alleen van vertrouwde bronnen toe; `strict-origin-when-cross-origin` beperkt wat de referrer lekt.
-- `.well-known/security.txt` beschrijft het meldpunt.
-- Let op: `robots.txt` is een verzoek, geen slot — kwaadwillende bots kunnen het negeren. GitHub Pages laat geen eigen HTTP-headers of firewall-regels toe; wie dat wil kan het domein later via Cloudflare proxyen met bot-fight-mode.
+## Kunst toevoegen
+
+Vervang de placeholder-SVG's in `public/art/` door scans op volledige resolutie en pas het
+manifest `src/data/artworks.ts` aan (titel NL/EN, tag, jaar, status, alt-tekst). Zie CHECKLIST.md.
+
+## Instagram-embeds
+
+URL's toevoegen/verwijderen in `INSTAGRAM_POSTS` in `src/data/artworks.ts`. Let op: een embed
+toont altijd de eerste dia van een carousel.
+
+## Taal & teksten
+
+Alle copy staat in `src/i18n/dictionary.ts`. Het `en`-object is type-checked tegen `nl`:
+vergeet je een vertaling, dan faalt de build.
+
+## E-mail & beveiliging
+
+- Het contactadres wordt pas in de browser in elkaar gezet (base64 + gesplitste domeindelen) —
+  nergens in de bron staat een leesbaar e-mailadres; het formulier opent een vooringevulde e-mail
+  via de eigen mail-app van de bezoeker.
+- Strikte CSP-meta op elke pagina (self-hosted fonts, geen third-party CDN), `noai/noimageai`,
+  robots.txt blokkeert 21 AI-crawlers, `.well-known/security.txt` aanwezig.
+- Dependabot houdt dependencies weekly bijgewerkt.
+
+## Deployen
+
+De GitHub Actions workflow `.github/workflows/deploy-pages.yml` bouwt en deployt automatisch bij
+elke push naar `main`. **Eenmalige instelling**: Settings → Pages → Source → *GitHub Actions*.
