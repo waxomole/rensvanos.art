@@ -1,4 +1,25 @@
-const ARTWORKS = [
+import type { Lang } from "./site";
+
+export type ArtworkStatus = "print" | "origineel" | "beide" | "uitverkocht";
+
+export interface Artwork {
+  /** Path relative to the site root, e.g. "art/artwork-01.svg". */
+  src: string;
+  title: string;
+  titleEn: string;
+  tag: string;
+  tagEn: string;
+  year: string;
+  status: ArtworkStatus;
+  alt: string;
+  altEn: string;
+}
+
+/**
+ * Gallery manifest. Replace the placeholder SVGs with full-resolution scans
+ * (see CHECKLIST.md) — add one entry per work here.
+ */
+export const ARTWORKS: Artwork[] = [
   {
     src: "art/artwork-01.svg",
     title: "Grachtenpanden",
@@ -8,7 +29,7 @@ const ARTWORKS = [
     year: "2025",
     status: "print",
     alt: "Lijnkunst van een rij Nederlandse grachtenpanden",
-    altEn: "Line art of a row of Dutch canal houses"
+    altEn: "Line art of a row of Dutch canal houses",
   },
   {
     src: "art/artwork-02.svg",
@@ -19,7 +40,7 @@ const ARTWORKS = [
     year: "2025",
     status: "origineel",
     alt: "Lijnkunst van een kerktoren boven de stad",
-    altEn: "Line art of a church tower rising above the city"
+    altEn: "Line art of a church tower rising above the city",
   },
   {
     src: "art/artwork-03.svg",
@@ -30,7 +51,7 @@ const ARTWORKS = [
     year: "2026",
     status: "beide",
     alt: "Fantastische toren met wimpels, getekend in lijn",
-    altEn: "Fantastical tower with pennants, drawn in line"
+    altEn: "Fantastical tower with pennants, drawn in line",
   },
   {
     src: "art/artwork-04.svg",
@@ -41,7 +62,7 @@ const ARTWORKS = [
     year: "2024",
     status: "print",
     alt: "Lijnkunst van een windmolen aan het water",
-    altEn: "Line art of a windmill by the water"
+    altEn: "Line art of a windmill by the water",
   },
   {
     src: "art/artwork-05.svg",
@@ -52,7 +73,7 @@ const ARTWORKS = [
     year: "2026",
     status: "origineel",
     alt: "Fantastische stad op een zwevend eiland",
-    altEn: "Fantastical city on a floating island"
+    altEn: "Fantastical city on a floating island",
   },
   {
     src: "art/artwork-06.svg",
@@ -63,14 +84,24 @@ const ARTWORKS = [
     year: "2024",
     status: "uitverkocht",
     alt: "Lijnkunst van een stadspoort met torens",
-    altEn: "Line art of a city gate with towers"
-  }
+    altEn: "Line art of a city gate with towers",
+  },
 ];
 
-const INSTAGRAM_POSTS = [
+/** Instagram post URLs; embeds render on the work page. Keep full post URLs. */
+export const INSTAGRAM_POSTS: readonly string[] = [
   "https://www.instagram.com/p/DBUVVBWNnav/",
   "https://www.instagram.com/p/CX3g2r8sKro/",
   "https://www.instagram.com/p/Demfy2ODBVU/",
   "https://www.instagram.com/p/DeCU6ixDH1o",
-  "https://www.instagram.com/p/DbNah1Qs9XK/"
+  "https://www.instagram.com/p/DbNah1Qs9XK/",
 ];
+
+/** Pick the field variant matching the active language. */
+export function localized<K extends "title" | "tag" | "alt">(art: Artwork, key: K, lang: Lang): string {
+  if (lang === "en") {
+    const enKey = `${key}En` as `${K}En`;
+    return art[enKey];
+  }
+  return art[key];
+}

@@ -66,3 +66,13 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Open Graph/social preview image (`og-image.png`) — **built**; replace with a real artwork version once scans exist
 - [x] SEO polish — sitemap, robots.txt, canonical/hreflang, JSON-LD, apple-touch-icon — **built**
 - [ ] Favicon refinement once a monogram exists (temporary serif "R" icon in place)
+
+## 7. React rewrite (PR: vibe/react-rewrite-36781f)
+
+- [x] Complete rewrite to React 19 + TypeScript + Vite 8 (multi-page, real URLs preserved)
+- [x] Two-tone palettes built in — **pick one**: `ink` (warm cream + sepia-black, current default) or `delft` (porcelain + Delft-blue slate); switch via `data-palette` on `<html>`
+- [x] Calligraphy headings (Great Vibes) for all titles/headers + signature
+- [x] Fonts self-hosted (fontsource) — stricter CSP, no Google Fonts dependency
+- [x] GitHub Actions deploy workflow added — **action needed: Settings → Pages → Source → "GitHub Actions" after merge**
+- [ ] Choose the definitive palette (iterate on request; new palettes are one block in tokens.css)
+- [ ] Calligraphy font review — alternatives (e.g. Alex Brush, Parisienne) are a one-line swap
