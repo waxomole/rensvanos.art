@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commissions & Prints — Rens van Os</title>
-  <meta name="description" content="Prints and originals of ink drawings, plus commissions: your home, building or fantasy landscape in line. Email prints@rensvanos.art.">
+  <meta name="description" content="Prints and originals of ink drawings, plus commissions: your home, building or fantasy landscape in line. Email via the site — prints (at) rensvanos (dot) art.">
   <meta name="robots" content="index, follow, noai, noimageai">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-src https://www.instagram.com; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://rensvanos.art/en/commissions.html">
   <link rel="alternate" hreflang="nl" href="https://rensvanos.art/commissies.html">
-  <link rel="alternate" hreflang="en" href="https://rensvanos.art/en/en/commissions.html">
+  <link rel="alternate" hreflang="en" href="https://rensvanos.art/en/commissions.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rens van Os">
   <meta property="og:title" content="Commissions & Prints — Rens van Os">
@@ -46,8 +46,11 @@
   </div>
 
   <nav class="nav" id="nav">
-    <a class="nav__brand" href="index.html">Rens van Os</a>
-    <div class="nav__links">
+      <a class="nav__brand" href="index.html">Rens van Os</a>
+  <button class="nav__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+    <div class="nav__links" id="navMenu">
       <a href="work.html">Work</a>
       <a href="about.html">About me</a>
       <a href="commissions.html" class="is-active">Commissions &amp; Prints</a>
@@ -79,7 +82,7 @@
             and regularly originals find new homes too.
             Send me a message for current availability and prices.
           </p>
-          <a class="btn btn--ink" href="#" data-mail-user="prints" data-mail-domain="rensvanos.art" data-mail-subject="Prints & originals">Ask about prints</a>
+          <a class="btn btn--ink" href="#enquiry">Ask about prints</a>
         </article>
         <article class="glass shop__card reveal">
           <h3>Commissions</h3>
@@ -88,11 +91,51 @@
             captured in line. Together we choose format and viewpoint;
             I take care of the pen.
           </p>
-          <a class="btn btn--ink" href="#" data-mail-user="prints" data-mail-domain="rensvanos.art" data-mail-subject="Commission">Discuss a commission</a>
+          <a class="btn btn--ink" href="#enquiry">Discuss a commission</a>
         </article>
       </div>
     </section>
 
+    <section class="form" id="enquiry">
+      <div class="glass form__panel reveal">
+        <p class="eyebrow">Enquiry</p>
+        <h2>Send a message</h2>
+        <p class="form__intro">Fill in the form and your email app will open with a ready-made enquiry. No copying and pasting needed.</p>
+        <form id="enquiryForm" data-mail-user="prints" data-mail-domain="rensvanos.art" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="fName">Name</label>
+              <input id="fName" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="fEmail">Email address</label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="fType">What is it about?</label>
+            <select id="fType" name="type" required>
+              <option value="" disabled selected>Choose an option&hellip;</option>
+              <option value="Print">Print of an existing work</option>
+              <option value="Original">Buy an original</option>
+              <option value="Commission">Commission &mdash; own building or fantasy</option>
+              <option value="Other">Other / not sure yet</option>
+            </select>
+          </div>
+          <div class="form__field">
+            <label for="fSubject">Building or subject <span class="form__optional">(optional)</span></label>
+            <input id="fSubject" name="subject" type="text" placeholder="E.g. the house in the photo, or a floating city">
+          </div>
+          <div class="form__field">
+            <label for="fMessage">Message</label>
+            <textarea id="fMessage" name="message" rows="5" required placeholder="Tell me briefly what you have in mind &mdash; size, style, timing&hellip;"></textarea>
+          </div>
+          <p class="form__error" id="formError" hidden></p>
+          <button class="btn btn--ink form__submit" type="submit">Send enquiry</button>
+          <p class="form__note">Your enquiry opens in your own email app; nothing is stored on a server.</p>
+        </form>
+      </div>
+    </section>
 
   </main>
 

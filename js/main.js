@@ -14,7 +14,13 @@
       close: "Sluiten",
       prev: "Vorig werk",
       next: "Volgend werk",
-      soldNote: "Dit werk is uitverkocht — interessee voor iets vergelijkbaars? Mail gerust."
+      soldNote: "Dit werk is uitverkocht — interessee voor iets vergelijkbaars? Mail gerust.",
+      formMissing: "Vul alsjeblieft je naam, een geldig e-mailadres, een keuze en een bericht in.",
+      formEmail: "Het e-mailadres lijkt niet te kloppen — controleer hem even.",
+      formBodyType: "Type aanvraag",
+      formBodySubject: "Gebouw of onderwerp",
+      formBodyMessage: "Bericht",
+      formSentFrom: "Verzonden via rensvanos.art"
     },
     en: {
       status: {
@@ -28,7 +34,13 @@
       close: "Close",
       prev: "Previous work",
       next: "Next work",
-      soldNote: "This work is sold out — interested in something similar? Feel free to email."
+      soldNote: "This work is sold out — interested in something similar? Feel free to email.",
+      formMissing: "Please fill in your name, a valid email address, a request type and a message.",
+      formEmail: "That email address doesn't look right — please double-check it.",
+      formBodyType: "Request type",
+      formBodySubject: "Building or subject",
+      formBodyMessage: "Message",
+      formSentFrom: "Sent via rensvanos.art"
     }
   }[lang];
 
@@ -174,6 +186,84 @@
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  /* Mobiel: burgermenu openen/sluiten */
+  var burger = document.getElementById("navBurger");
+  if (burger && nav) {
+    var setMenu = function (open) {
+      nav.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    var menuIsOpen = function () { return nav.classList.contains("is-open"); };
+
+    burger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMenu(!menuIsOpen());
+    });
+
+    document.addEventListener("click", function (e) {
+      if (menuIsOpen() && !nav.contains(e.target)) setMenu(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menuIsOpen()) {
+        setMenu(false);
+        burger.focus();
+      }
+    });
+
+    nav.querySelectorAll(".nav__links a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+  }
+
+  /* Aanvraagformulier: stelt een mailto samen (adres blijft geobfusceerd in de bron) */
+  var enquiryForm = document.getElementById("enquiryForm");
+  if (enquiryForm) {
+    enquiryForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var errorEl = document.getElementById("formError");
+      var name = enquiryForm.elements.name.value.trim();
+      var email = enquiryForm.elements.email.value.trim();
+      var type = enquiryForm.elements.type.value;
+      var subjectLine = enquiryForm.elements.subject.value.trim();
+      var message = enquiryForm.elements.message.value.trim();
+
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      var complete = name && type && message;
+
+      enquiryForm.querySelectorAll("input, select, textarea").forEach(function (el) {
+        var invalid =
+          (el.name === "email" && !emailOk) ||
+          ((el.name === "name" || el.name === "type" || el.name === "message") && !el.value.trim());
+        el.classList.toggle("is-invalid", invalid);
+      });
+
+      if (!complete || !emailOk) {
+        if (errorEl) {
+          errorEl.textContent = !emailOk && email ? T.formEmail : T.formMissing;
+          errorEl.hidden = false;
+        }
+        return;
+      }
+      if (errorEl) errorEl.hidden = true;
+
+      var addr = enquiryForm.getAttribute("data-mail-user") + "@" + enquiryForm.getAttribute("data-mail-domain");
+      var mailSubject = "[" + type + "] " + (subjectLine || name);
+      var body =
+        name + " <" + email + ">\n\n" +
+        T.formBodyType + ": " + type + "\n" +
+        (subjectLine ? T.formBodySubject + ": " + subjectLine + "\n" : "") +
+        "\n" + T.formBodyMessage + ":\n" + message + "\n\n" +
+        "— " + T.formSentFrom;
+
+      window.location.href =
+        "mailto:" + addr +
+        "?subject=" + encodeURIComponent(mailSubject) +
+        "&body=" + encodeURIComponent(body);
+    });
   }
 
   var revealables = document.querySelectorAll(".reveal");

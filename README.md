@@ -7,11 +7,11 @@ Showcase-website voor Rens van Os — lijnkunst van architectuur en fantastische
 - `index.html` — home: hero, quote, uitgelicht werk, galerij-teaser
 - `werk.html` — volledige galerij + Instagram-sectie
 - `over-mij.html` — over Rens
-- `commissies.html` — prints, originelen en commissies
+- `commissies.html` — prints, originelen en commissies, met aanvraagformulier (opent een kant-en-klare e-mail via je eigen mailprogramma; het adres staat geobfusceerd in de bron)
 - `en/` — de Engelstalige tweelingpagina's (`index`, `work`, `about`, `commissions`); de taalschakelaar in de navigatie gaat naar de gelijkwaardige pagina
 - `css/style.css` — styling (liquid glass: gefroste panelen met backdrop-blur, incl. inkt-vlekken en -wassing in de achtergrond)
 - `js/artwork.js` — manifest van de galerij (titel NL/EN, tag, jaar, status, alt-tekst) plus `INSTAGRAM_POSTS`
-- `js/main.js` — galerij-rendering (met optionele `data-limit` op de grid), lightbox met werkdetail en aanvraag-link, Instagram-embeds, scroll-gedrag en reveal-animaties
+- `js/main.js` — galerij-rendering (met optionele `data-limit` op de grid), lightbox met werkdetail en aanvraag-link, Instagram-embeds, burgermenu op mobiel (glas-knop in de hoek), aanvraagformulier, scroll-gedrag en reveal-animaties
 - `art/` — kunstwerken; bevat nu placeholder-SVG's
 - `og-image.png` — sociale preview (1200×630) voor gedeelde links
 - `apple-touch-icon.png` — icoon voor iOS-thuisscherm

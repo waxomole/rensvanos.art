@@ -62,6 +62,7 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] English version + NL/EN language switch (`en/index.html`) — **built**
 - [x] Instagram feed section — **live** with two embedded posts; add more URLs to `INSTAGRAM_POSTS` in `js/artwork.js`. Note: embeds always show the first slide of a carousel; specific carousel images need their own files
 - [x] Shop-style per-work detail (title, year, availability, "enquire" mail link) — **built into the lightbox**
+- [x] On-site enquiry form on the commissions pages (NL + EN) — **built**; composes a prefilled email to the obfuscated print address via the visitor's own mail app, no backend needed. If you ever want true server-side delivery (Formspree/Web3Forms), swap the submit handler
 - [x] Open Graph/social preview image (`og-image.png`) — **built**; replace with a real artwork version once scans exist
 - [x] SEO polish — sitemap, robots.txt, canonical/hreflang, JSON-LD, apple-touch-icon — **built**
 - [ ] Favicon refinement once a monogram exists (temporary serif "R" icon in place)
