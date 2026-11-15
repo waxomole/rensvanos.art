@@ -38,8 +38,8 @@ npm run lint       # oxlint
 Twee tweekleurige paletten zijn ingebouwd. Wissel door in álle 8 html-bestanden het
 `data-palette`-attribuut op `<html>` te veranderen:
 
-- `data-palette="ink"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`) — huidige standaard
-- `data-palette="delft"` — **Delfts & Mist**: porselein (`#eef0f3`) met Delfts blauwleisteen (`#1f2a33`)
+- `data-palette="delft"` — **Delfts & Mist**: porselein (`#eef0f3`) met Delfts blauwleisteen (`#1f2a33`) — huidige standaard
+- `data-palette="ink"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`)
 
 Alle kleuren lopen via custom properties in `src/styles/tokens.css`; een nieuw palet = één nieuw blok daar.
 
