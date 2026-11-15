@@ -12,6 +12,32 @@ const nl = {
     menu: "Menu",
     instagram: "Instagram @r.os_art",
   },
+  meta: {
+    home: {
+      title: "Lijnkunst van architectuur & fantasie",
+      description:
+        "Pen- en inkttekeningen van gebouwen en fantastische plaatsen door Rens van Os uit Woerden. Prints, originele werken en commissies via de site.",
+    },
+    work: {
+      title: "Werk",
+      description:
+        "Galerie met inkttekeningen: architectuurportretten en fantasielanden, pen op papier. Bekijk de collectie van Rens van Os.",
+    },
+    about: {
+      title: "Over mij",
+      description:
+        "Rens van Os, tekenaar en architect uit Woerden. Over de liefde voor de lijn, gebouwen met karakter en verzonnen werelden.",
+    },
+    commissions: {
+      title: "Commissies & Prints",
+      description:
+        "Prints en originelen te koop, en commissies: jouw huis of favoriete gebouw vastgelegd in pen en inkt. Vraag via de site.",
+    },
+    notfound: {
+      title: "Pagina niet gevonden",
+      description: "Deze pagina is nog niet uitgetekend.",
+    },
+  },
   home: {
     kicker: "Lijnkunst · Woerden",
     sub: "Gebouwen met karakter en plaatsen die alleen in de verbeelding bestaan — getekend met pen en inkt.",
@@ -101,6 +127,12 @@ const nl = {
   footer: {
     copy: "Alle rechten voorbehouden.",
   },
+  notfound: {
+    title: "Pagina niet gevonden",
+    message: "Deze pagina is nog niet uitgetekend.",
+    body: "Misschien bestaat hij ooit nog — voorlopig loopt de lijn hier dood.",
+    cta: "Terug naar de voorkant",
+  },
   lightbox: {
     label: "Werk detail",
     status: {
@@ -125,6 +157,32 @@ const en: typeof nl = {
     commissions: "Commissions & Prints",
     menu: "Menu",
     instagram: "Instagram @r.os_art",
+  },
+  meta: {
+    home: {
+      title: "Line art of architecture & fantasy",
+      description:
+        "Pen and ink drawings of buildings and fantastical places by Rens van Os from Woerden. Prints, originals and commissions via the site.",
+    },
+    work: {
+      title: "Work",
+      description:
+        "Gallery of ink drawings: architectural portraits and fantasy lands, pen on paper. Browse the collection of Rens van Os.",
+    },
+    about: {
+      title: "About me",
+      description:
+        "Rens van Os, draughtsman and architect from Woerden. About the love of the line, buildings with character and invented worlds.",
+    },
+    commissions: {
+      title: "Commissions & Prints",
+      description:
+        "Prints and originals for sale, plus commissions: your home or favourite building captured in pen and ink. Enquire via the site.",
+    },
+    notfound: {
+      title: "Page not found",
+      description: "This page hasn't been drawn yet.",
+    },
   },
   home: {
     kicker: "Line art · Woerden",
@@ -213,6 +271,12 @@ const en: typeof nl = {
   },
   footer: {
     copy: "All rights reserved.",
+  },
+  notfound: {
+    title: "Page not found",
+    message: "This page hasn't been drawn yet.",
+    body: "It may exist someday — for now, the line runs out here.",
+    cta: "Back to the front page",
   },
   lightbox: {
     label: "Artwork detail",

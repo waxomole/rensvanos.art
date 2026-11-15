@@ -76,3 +76,17 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] GitHub Actions deploy workflow added — **action needed: Settings → Pages → Source → "GitHub Actions" after merge**
 - [x] Definitive palette chosen: **Delfts & Mist** (`delft`); `ink` remains available as a one-attribute switch
 - [ ] Calligraphy font review — alternatives (e.g. Alex Brush, Parisienne) are a one-line swap
+
+## 8. Modern SPA routing & finishing touches (PR: vibe/modern-routing-36781f)
+
+- [x] Clean URLs — react-router SPA: `/werk`, `/en/work`, … instead of `.html` pages
+- [x] GitHub Pages 404.html fallback (postbuild script) so deep links still resolve
+- [x] Legacy `.html` URLs redirect client-side
+- [x] Per-route meta (title, description, canonical, OG) via `usePageMeta`
+- [x] Custom 404 page — "Deze pagina is nog niet uitgetekend" with half-finished sketch (NL/EN)
+- [x] Pen-nib favicon (data-URI SVG, delft ink on porcelain)
+- [x] Ink trail cursor — canvas, fades like drying ink; disabled for touch + reduced motion
+- [x] Paper grain texture over the aurora background (SVG turbulence, multiply blend)
+- [x] Delfts & Mist glass contrast re-tuned (whiter panels, stronger borders/shadows, deeper paper)
+- [ ] Verify the delft palette contrast on your screen after merge — iterate if still too subtle
+- [ ] Thorough ink-trail testing on your devices (mouse + trackpad; it stays off on touch)

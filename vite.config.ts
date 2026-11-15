@@ -1,30 +1,12 @@
-import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 /**
- * Multi-page app: every page is a real HTML file with its own meta tags,
- * canonical URL and hreflang alternates — no SPA fallback hacks needed on
- * GitHub Pages. React powers the interactive UI on each page.
+ * Single-page app: one HTML shell, react-router serves every clean URL.
+ * Vite's dev server and preview both fall back to index.html for unknown
+ * paths (appType "spa"), and the postbuild script copies index.html to
+ * 404.html so GitHub Pages does the same in production.
  */
-const pages = [
-  "index",
-  "werk",
-  "over-mij",
-  "commissies",
-  "en/index",
-  "en/work",
-  "en/about",
-  "en/commissions",
-];
-
-const input = Object.fromEntries(
-  pages.map((page) => [page.replaceAll("/", "-"), fileURLToPath(new URL(`./${page}.html`, import.meta.url))]),
-);
-
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: { input },
-  },
 });

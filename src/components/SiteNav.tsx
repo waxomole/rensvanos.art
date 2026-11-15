@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { PAGE_PATHS, SITE, type PageId } from "../data/site";
 import { useAutoHideHeader } from "../hooks/useAutoHideHeader";
 import { useEscapeKey } from "../hooks/useEscapeKey";
@@ -43,9 +44,9 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
 
   return (
     <nav className={classes.join(" ")} id="nav" ref={navRef}>
-      <a className="nav__brand" href={PAGE_PATHS.nl.home} onClick={() => onToggle(false)}>
+      <Link className="nav__brand" to={PAGE_PATHS.nl.home} onClick={() => onToggle(false)}>
         {SITE.name}
-      </a>
+      </Link>
 
       <button
         type="button"
@@ -62,14 +63,14 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
 
       <div className="nav__links" id="navMenu">
         {NAV_ITEMS.map(({ page: itemPage, labelKey }) => (
-          <a
+          <Link
             key={itemPage}
-            href={PAGE_PATHS.nl[itemPage]}
+            to={PAGE_PATHS.nl[itemPage]}
             className={page === itemPage ? "is-active" : undefined}
             onClick={() => onToggle(false)}
           >
             {t.nav[labelKey]}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
