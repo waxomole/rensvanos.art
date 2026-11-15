@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commissies & Prints — Rens van Os</title>
-  <meta name="description" content="Prints en originelen van inkttekeningen, en commissies: jouw huis, gebouw of fantasielandschap in lijn. Mail prints@rensvanos.art.">
+  <meta name="description" content="Prints en originelen van inkttekeningen, en commissies: jouw huis, gebouw of fantasielandschap in lijn. Mail via de site — prints (at) rensvanos (dot) art.">
   <meta name="robots" content="index, follow, noai, noimageai">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-src https://www.instagram.com; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://rensvanos.art/commissies.html">
   <link rel="alternate" hreflang="nl" href="https://rensvanos.art/commissies.html">
-  <link rel="alternate" hreflang="en" href="https://rensvanos.art/en/en/commissions.html">
+  <link rel="alternate" hreflang="en" href="https://rensvanos.art/en/commissions.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rens van Os">
   <meta property="og:title" content="Commissies & Prints — Rens van Os">
@@ -46,8 +46,11 @@
   </div>
 
   <nav class="nav" id="nav">
-    <a class="nav__brand" href="index.html">Rens van Os</a>
-    <div class="nav__links">
+      <a class="nav__brand" href="index.html">Rens van Os</a>
+  <button class="nav__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+    <div class="nav__links" id="navMenu">
       <a href="werk.html">Werk</a>
       <a href="over-mij.html">Over mij</a>
       <a href="commissies.html" class="is-active">Commissies &amp; Prints</a>
@@ -79,7 +82,7 @@
             en regelmatig gaan ook originelen naar nieuwe eigenaren.
             Stuur me een bericht voor actuele beschikbaarheid en prijzen.
           </p>
-          <a class="btn btn--ink" href="#" data-mail-user="prints" data-mail-domain="rensvanos.art" data-mail-subject="Prints & originelen">Vraag naar prints</a>
+          <a class="btn btn--ink" href="#aanvraag">Vraag naar prints</a>
         </article>
         <article class="glass shop__card reveal">
           <h3>Commissies</h3>
@@ -88,11 +91,51 @@
             in lijn vastleggen. Samen kiezen we formaat en gezichtspunt;
             ik neem de pen voor mijn rekening.
           </p>
-          <a class="btn btn--ink" href="#" data-mail-user="prints" data-mail-domain="rensvanos.art" data-mail-subject="Commissie">Bespreek een commissie</a>
+          <a class="btn btn--ink" href="#aanvraag">Bespreek een commissie</a>
         </article>
       </div>
     </section>
 
+    <section class="form" id="aanvraag">
+      <div class="glass form__panel reveal">
+        <p class="eyebrow">Aanvraag</p>
+        <h2>Stuur een bericht</h2>
+        <p class="form__intro">Vul het formulier in en je e-mailprogramma opent met een kant-en-klare aanvraag. Zo bereik ik zeker, en je hoeft zelf niets te kopi&euml;ren.</p>
+        <form id="enquiryForm" data-mail-user="prints" data-mail-domain="rensvanos.art" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="fName">Naam</label>
+              <input id="fName" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="fEmail">E-mailadres</label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="fType">Waar gaat het om?</label>
+            <select id="fType" name="type" required>
+              <option value="" disabled selected>Kies een optie&hellip;</option>
+              <option value="Print">Print van een bestaand werk</option>
+              <option value="Origineel">Origineel kopen</option>
+              <option value="Commissie">Commissie &mdash; eigen gebouw of fantasie</option>
+              <option value="Anders">Anders / weet ik nog niet</option>
+            </select>
+          </div>
+          <div class="form__field">
+            <label for="fSubject">Gebouw of onderwerp <span class="form__optional">(optioneel)</span></label>
+            <input id="fSubject" name="subject" type="text" placeholder="Bijv. het pand op de foto, of een zwevende stad">
+          </div>
+          <div class="form__field">
+            <label for="fMessage">Bericht</label>
+            <textarea id="fMessage" name="message" rows="5" required placeholder="Vertel kort wat je voor ogen hebt &mdash; formaat, stijl, timing&hellip;"></textarea>
+          </div>
+          <p class="form__error" id="formError" hidden></p>
+          <button class="btn btn--ink form__submit" type="submit">Verstuur aanvraag</button>
+          <p class="form__note">Je aanvraag gaat via je eigen e-mailprogramma; er wordt niets op een server opgeslagen.</p>
+        </form>
+      </div>
+    </section>
 
   </main>
 
