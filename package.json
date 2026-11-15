@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/postbuild.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.5",
+    "@fontsource/great-vibes": "^5.2.5",
+    "@fontsource/inter": "^5.2.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "@fontsource/inter": "^5.2.5",
-    "@fontsource/cormorant-garamond": "^5.2.5",
-    "@fontsource/great-vibes": "^5.2.5"
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",

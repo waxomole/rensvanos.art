@@ -1,4 +1,5 @@
 import { useT } from "../i18n/LangContext";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { Reveal } from "../components/Reveal";
 
 function PortraitIcon() {
@@ -13,6 +14,7 @@ function PortraitIcon() {
 export function AboutPage() {
   const t = useT();
   const a = t.about;
+  usePageMeta("about");
   return (
     <>
       <header className="hero hero--page" id="top">

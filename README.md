@@ -1,8 +1,9 @@
 # rensvanos.art
 
 Showcase-website voor Rens van Os — lijnkunst van architectuur en fantastische plaatsen.
-Gebouwd met **React 19 + TypeScript + Vite 8** als multi-page app: elke pagina is een echt
-HTML-bestand (eigen meta, canonical, hreflang), met React-componenten voor alle interactiviteit.
+Gebouwd met **React 19 + TypeScript + Vite 8 + React Router 7** als single-page app met schone
+URL's (`/werk`, `/en/work`, … — geen `.html` in de adresbalk). Eén HTML-shell; per route worden
+titel, description, canonical en OG-tags via `usePageMeta` ingesteld.
 
 ## Ontwikkelen
 
@@ -17,28 +18,40 @@ npm run lint       # oxlint
 ## Structuur
 
 ```
-├── index.html / werk.html / over-mij.html / commissies.html   NL-pagina's (Vite-entries)
-├── en/…                                                       EN-tweelingpagina's
-├── public/            statische assets (art/, og-image, robots.txt, sitemap, CNAME, security.txt)
+├── index.html          de enige HTML-shell (CSP, OG, JSON-LD, pen-nib favicon)
+├── public/             statische assets (art/, og-image, robots.txt, sitemap, CNAME, security.txt)
+├── scripts/
+│   └── postbuild.mjs   kopieert dist/index.html → dist/404.html (SPA-fallback GitHub Pages)
 ├── src/
-│   ├── App.tsx                paginaschakelaar
-│   ├── entries/               8 entry-points (koppelen html ↔ React)
-│   ├── pages/                 HomePage, WorkPage, AboutPage, CommissionsPage
-│   ├── components/            SiteNav (burger), Lightbox, GalleryGrid, EnquiryForm, MailLink, …
-│   ├── data/                  artworks.ts (manifest + Instagram), site.ts (contact, paden)
-│   ├── i18n/                  dictionary.ts — álle sitetekst NL/EN op één plek, type-checked
-│   ├── hooks/                 useReveal, useEscapeKey, useBodyScrollLock
-│   ├── lib/                   email.ts (mailto opbouw), assets.ts
-│   └── styles/                tokens.css (paletten), base, components, pages
+│   ├── main.tsx                BrowserRouter + mounting
+│   ├── App.tsx                 alle routes (8 schoone URL's + 404 + legacy-redirects)
+│   ├── pages/                  HomePage, WorkPage, AboutPage, CommissionsPage, NotFoundPage
+│   ├── components/             SiteNav (burger), UtilityPill, InkTrail, Aurora (+ papierkorrel),
+│   │                           Lightbox, GalleryGrid, EnquiryForm, MailLink, …
+│   ├── data/                   artworks.ts (manifest + Instagram), site.ts (contact, paden)
+│   ├── i18n/                   dictionary.ts — álle sitetekst NL/EN op één plek, type-checked
+│   ├── hooks/                  usePageMeta, useAutoHideHeader, useReveal, useEscapeKey, …
+│   ├── lib/                    email.ts (mailto opbouw), assets.ts
+│   └── styles/                 tokens.css (paletten), base, components, pages
 └── .github/workflows/deploy-pages.yml   build & deploy naar GitHub Pages
 ```
+
+## Routing & schone URL's
+
+- React Router serveert `/`, `/werk`, `/over-mij`, `/commissies` + de `/en/…`-varianten.
+- De postbuild-stap maakt `404.html` (een kopie van de shell). GitHub Pages valt daarop terug
+  voor onbekende paden, waardoor diepe links alsnog de app laden en correct routeren.
+- Oude `.html`-URL's (`/werk.html`, …) worden client-side omgeleid via `LEGACY_PATHS`.
+- **Afkapping**: diepe links komen binnen met HTTP-status 404 (de server kent het pad niet);
+  de pagina zelf rendert prima. Voor een portfolio-site met beperkte diepe links een acceptabele
+  trade-off; sitemap.xml wijst crawlers naar de schone URL's.
 
 ## Branding: palet kiezen
 
 Twee tweekleurige paletten zijn ingebouwd. Wissel door in álle 8 html-bestanden het
 `data-palette`-attribuut op `<html>` te veranderen:
 
-- `data-palette="delft"` — **Delfts & Mist**: porselein (`#eef0f3`) met Delfts blauwleisteen (`#1f2a33`) — huidige standaard
+- `data-palette="delft"` — **Delfts & Mist**: porselein (`#e9edf1`) met Delfts blauwleisteen (`#1f2a33`) — huidige standaard (glas geoptimaliseerd voor contrast)
 - `data-palette="ink"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`)
 
 Alle kleuren lopen via custom properties in `src/styles/tokens.css`; een nieuw palet = één nieuw blok daar.

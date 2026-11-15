@@ -201,3 +201,40 @@
   .about__portrait { max-width: 320px; margin: 0 auto; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* 404 — "Deze pagina is nog niet uitgetekend" */
+.notfound {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 140px 24px 100px;
+}
+
+.notfound__panel {
+  max-width: 560px;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 3.2rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notfound__sketch {
+  width: min(280px, 70%);
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.notfound__title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0;
+}
+
+.notfound__body {
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}

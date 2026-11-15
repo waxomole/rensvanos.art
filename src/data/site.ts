@@ -3,20 +3,36 @@ export type Lang = "nl" | "en";
 export const PAGES = ["home", "work", "about", "commissions"] as const;
 export type PageId = (typeof PAGES)[number];
 
-/** Root-relative paths — identical to the deployed URLs, so sharing deep links keeps working. */
+/**
+ * Clean URLs — the site is a single-page app (one HTML shell) and react-router
+ * serves every path. On GitHub Pages, unknown paths fall back to 404.html (a
+ * copy of index.html), so deep links still resolve to the right page.
+ */
 export const PAGE_PATHS: Record<Lang, Record<PageId, string>> = {
   nl: {
-    home: "/index.html",
-    work: "/werk.html",
-    about: "/over-mij.html",
-    commissions: "/commissies.html",
+    home: "/",
+    work: "/werk",
+    about: "/over-mij",
+    commissions: "/commissies",
   },
   en: {
-    home: "/en/index.html",
-    work: "/en/work.html",
-    about: "/en/about.html",
-    commissions: "/en/commissions.html",
+    home: "/en",
+    work: "/en/work",
+    about: "/en/about",
+    commissions: "/en/commissions",
   },
+};
+
+/** Pre-SPA URLs that may still circulate (bookmarks, search results) — redirected client-side. */
+export const LEGACY_PATHS: Record<string, string> = {
+  "/index.html": "/",
+  "/werk.html": "/werk",
+  "/over-mij.html": "/over-mij",
+  "/commissies.html": "/commissies",
+  "/en/index.html": "/en",
+  "/en/work.html": "/en/work",
+  "/en/about.html": "/en/about",
+  "/en/commissions.html": "/en/commissions",
 };
 
 export const SITE = {

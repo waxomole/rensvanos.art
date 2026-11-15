@@ -11,6 +11,7 @@ export function Aurora() {
       {Array.from({ length: SPLAT_COUNT }, (_, i) => (
         <div key={`splat-${i + 1}`} className={`aurora__splat aurora__splat--${i + 1}`} />
       ))}
+      <div className="aurora__grain" />
     </div>
   );
 }

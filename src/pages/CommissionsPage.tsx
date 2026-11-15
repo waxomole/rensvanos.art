@@ -1,10 +1,12 @@
 import { useT } from "../i18n/LangContext";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { EnquiryForm } from "../components/EnquiryForm";
 import { Reveal } from "../components/Reveal";
 
 export function CommissionsPage() {
   const t = useT();
   const c = t.commissions;
+  usePageMeta("commissions");
   return (
     <>
       <header className="hero hero--page" id="top">

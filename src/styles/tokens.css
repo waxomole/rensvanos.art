@@ -32,25 +32,29 @@ html[data-palette="ink"] {
 }
 
 html[data-palette="delft"] {
-  --paper: #eef0f3;
+  --paper: #e9edf1;
   --ink: #1f2a33;
   --ink-rgb: 31, 42, 51;
   --ink-soft: #46565f;
   --ink-faint: #84949e;
   --on-ink: #f2f5f7;
 
-  --blob-1: #d8e3ea;
-  --blob-2: #dfe5e1;
-  --blob-3: #e2dbe6;
+  --blob-1: #ccdcea;
+  --blob-2: #d4e0dc;
+  --blob-3: #ddd4e4;
 
-  --glass-bg: rgba(252, 253, 255, 0.42);
-  --glass-bg-strong: rgba(252, 253, 255, 0.66);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --nav-scrolled-bg: rgba(252, 253, 255, 0.8);
-  --control-bg: rgba(252, 253, 255, 0.55);
-  --control-bg-hover: rgba(252, 253, 255, 0.8);
-  --lightbox-bg: rgba(252, 253, 255, 0.75);
-  --surface: #fafbfc;
+  /* Delft glass sits on a cooler, slightly darker paper — panels need more
+     body than the warm palette to read as glass instead of vanishing. */
+  --glass-bg: rgba(255, 255, 255, 0.58);
+  --glass-bg-strong: rgba(255, 255, 255, 0.74);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.86);
+  --control-bg: rgba(255, 255, 255, 0.62);
+  --control-bg-hover: rgba(255, 255, 255, 0.88);
+  --lightbox-bg: rgba(255, 255, 255, 0.82);
+  --surface: #f7f9fa;
+
+  --glass-shadow: 0 8px 32px rgba(31, 42, 51, 0.16);
 }
 
 :root {
