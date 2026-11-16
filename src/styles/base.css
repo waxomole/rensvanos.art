@@ -189,21 +189,21 @@ html[data-theme="dark"] .glass::after {
   color: var(--ink);
   background: var(--glass-bg-strong);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--edge-highlight);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--edge-highlight), 0 0 18px var(--halo);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
-.btn--glass:hover { box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.16), inset 0 1px 0 var(--edge-highlight); }
+.btn--glass:hover { box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.16), inset 0 1px 0 var(--edge-highlight), 0 0 26px var(--halo); }
 
 .btn--ink {
   color: var(--on-ink);
   background: var(--ink);
   border: 1px solid var(--ink);
-  box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.28);
+  box-shadow: 0 8px 24px rgba(var(--ink-rgb), 0.28), 0 0 22px var(--halo);
 }
 
-.btn--ink:hover { box-shadow: 0 12px 32px rgba(var(--ink-rgb), 0.34); }
+.btn--ink:hover { box-shadow: 0 12px 32px rgba(var(--ink-rgb), 0.34), 0 0 30px var(--halo); }
 
 /* Scroll-reveal */
 .reveal {

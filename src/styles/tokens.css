@@ -32,6 +32,10 @@ html[data-theme="light"] {
   --surface: #fbfaf7;
   --edge-highlight: rgba(255, 255, 255, 0.7);
   --backdrop: rgba(24, 23, 21, 0.45);
+
+  /* Lamplight glow for buttons & the cursor aurora — warm gold in light mode. */
+  --halo: rgba(198, 156, 74, 0.4);
+  --glow-rgb: 198, 156, 74;
 }
 
 html[data-theme="dark"] {
@@ -56,6 +60,10 @@ html[data-theme="dark"] {
   --surface: #1a2027;
   --edge-highlight: rgba(255, 255, 255, 0.09);
   --backdrop: rgba(5, 7, 9, 0.6);
+
+  /* Moonlit glow in dark mode. */
+  --halo: rgba(148, 170, 210, 0.32);
+  --glow-rgb: 148, 170, 210;
 }
 
 :root {

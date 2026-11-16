@@ -4,12 +4,25 @@ import { PAGE_PATHS, SITE, type PageId } from "../data/site";
 import { useAutoHideHeader } from "../hooks/useAutoHideHeader";
 import { useEscapeKey } from "../hooks/useEscapeKey";
 import { useT } from "../i18n/LangContext";
+import { InstagramIcon } from "./Aurora";
+import { LangSwitch } from "./LangSwitch";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_ITEMS = [
   { page: "work", labelKey: "work" },
   { page: "about", labelKey: "about" },
   { page: "commissions", labelKey: "commissions" },
 ] as const;
+
+function PenNibIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 21 C8.2 15.8 6 12 6 9 C6 6 8.7 3.8 12 3.8 C15.3 3.8 18 6 18 9 C18 12 15.8 15.8 12 21 Z" />
+      <circle cx="12" cy="9" r="1.2" />
+      <path d="M12 10.2 L12 19" />
+    </svg>
+  );
+}
 
 interface SiteNavProps {
   page: PageId;
@@ -19,7 +32,9 @@ interface SiteNavProps {
 
 /**
  * Glass pill with brand + page links on desktop; below 700px a compact
- * corner pill with a glass burger button and a dropdown menu. Scrolling
+ * corner pill with a glass burger button and a dropdown menu; below 560px
+ * brand and utility pill collapse into a single round pen-nib button whose
+ * menu carries the page links plus EN, dark mode and Instagram. Scrolling
  * down fades the pill out; scrolling up brings it back.
  */
 export function SiteNav({ page, open, onToggle }: SiteNavProps) {
@@ -42,9 +57,11 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
   if (open) classes.push("is-open");
   if (hidden) classes.push("is-hidden");
 
+  const close = () => onToggle(false);
+
   return (
     <nav className={classes.join(" ")} id="nav" ref={navRef}>
-      <Link className="nav__brand" to={PAGE_PATHS.nl.home} onClick={() => onToggle(false)}>
+      <Link className="nav__brand" to={PAGE_PATHS.nl.home} onClick={close}>
         {SITE.name}
       </Link>
 
@@ -59,6 +76,7 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
+        <PenNibIcon />
       </button>
 
       <div className="nav__links" id="navMenu">
@@ -67,11 +85,20 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
             key={itemPage}
             to={PAGE_PATHS.nl[itemPage]}
             className={page === itemPage ? "is-active" : undefined}
-            onClick={() => onToggle(false)}
+            onClick={close}
           >
             {t.nav[labelKey]}
           </Link>
         ))}
+
+        {/* Small screens only: the utility pill collapses into the menu. */}
+        <div className="nav__extras">
+          <LangSwitch currentPage={page} onNavigate={close} />
+          <ThemeToggle />
+          <a href={SITE.instagram} target="_blank" rel="noopener" className="utility__insta" aria-label={t.nav.instagram}>
+            <InstagramIcon />
+          </a>
+        </div>
       </div>
     </nav>
   );

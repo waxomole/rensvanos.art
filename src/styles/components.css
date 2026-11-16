@@ -122,6 +122,12 @@
   cursor: pointer;
 }
 
+/* Pen-nib icon inside the burger — only shown when the pill collapses */
+.nav__burger svg { display: none; }
+
+/* Utility items inside the menu — only shown when the pill collapses */
+.nav__extras { display: none; }
+
 .lang-switch {
   display: inline-flex;
   align-items: center;
@@ -374,9 +380,10 @@
   background: var(--surface);
 }
 
-/* Enquiry form */
+/* Enquiry form — same max-width as the shop section above it, so both
+   sections share edges on every screen. */
 .form {
-  max-width: 880px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
@@ -417,14 +424,19 @@
 }
 
 /* Full-width + min-width:0 so fields shrink with the panel instead of
-   poking past it (grid items refuse to shrink below intrinsic width). */
+   poking past it (grid items refuse to shrink below intrinsic width).
+   font-size 16px minimum: iOS Safari zooms the whole page when focusing
+   a smaller input. -webkit-appearance:none removes iOS's inner shadow
+   and rounding so fields truly fill their box. */
 .form__field input,
 .form__field select,
 .form__field textarea {
   width: 100%;
   min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: 16px;
   color: var(--ink);
   padding: 0.75rem 0.95rem;
   background: var(--control-bg);
@@ -579,6 +591,74 @@
   .form__row { grid-template-columns: 1fr; }
 }
 
+/* Very small screens: both pills collapse into ONE round pen-nib button.
+   Its menu carries the page links plus EN, dark mode and Instagram. */
+@media (max-width: 560px) {
+  .utility { display: none; }
+
+  .nav {
+    left: 14px;
+    top: 12px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 999px;
+  }
+
+  .nav__brand { display: none; }
+
+  .nav__burger {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav__burger:hover { background: transparent; transform: none; }
+  .nav__burger:active { transform: scale(0.94); }
+  .nav__burger span { display: none; }
+  .nav__burger svg { display: block; width: 24px; height: 24px; }
+
+  .nav__links {
+    min-width: 0;
+    width: min(260px, calc(100vw - 28px));
+    gap: 0.3rem;
+  }
+
+  .nav__extras {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(var(--ink-rgb), 0.12);
+  }
+}
+
+/* Aurora glow that trails the pointer — hidden until the first move */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--glow-rgb), 0.4) 0%, rgba(var(--glow-rgb), 0.14) 42%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-glow.is-on { opacity: 1; }
+
 /* Ink trail cursor — canvas overlay, pointer-events none so it never blocks clicks */
 .ink-trail {
   position: fixed;
@@ -593,5 +673,5 @@
 html[data-theme="dark"] .ink-trail { mix-blend-mode: screen; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ink-trail { display: none; }
+  .ink-trail, .cursor-glow { display: none; }
 }

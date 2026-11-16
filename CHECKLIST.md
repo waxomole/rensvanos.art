@@ -104,3 +104,11 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Work page: drawings framed with `object-fit: contain` (never cropped), captions centered, glass panels carry the paper grain
 - [x] Mobile: 44px burger target, taller dropdown links, tap-highlight removed, svh hero heights
 - [ ] Check the dark palette on your devices — easy to re-tune in tokens.css
+
+## 10. Small-screen collapse, glow & cursor aurora (PR: vibe/glow-mobile-36781f)
+
+- [x] Below 560px both top pills collapse into ONE round pen-nib button; its menu holds page links + EN + dark mode + Instagram (no more oval pill / clipped brand)
+- [x] Button glow (lamplight gold in light mode, moonlit blue in dark) on all glass/ink buttons
+- [x] Cursor aurora glow follows the pointer on every device (Cloudflare-style light-up); on touch it replaces the too-faint ink stroke; scales up on tap; rAF stops when idle
+- [x] Commission form: fields now 16px (no iOS focus-zoom), native iOS input chrome removed, form panel edges aligned with the shop section
+- [ ] Verify the form right-edge on your iPhone 13 Pro after merge — if a gap remains, send a screenshot and I'll pinpoint it
