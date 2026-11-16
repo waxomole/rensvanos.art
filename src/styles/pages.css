@@ -1,13 +1,13 @@
 /* Page sections: heroes, quote, featured, about, shop */
 
 .hero {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 24px 80px;
+  padding: 110px 24px 64px;
 }
 
 .hero__kicker {
@@ -53,8 +53,8 @@
 }
 
 .hero--page {
-  min-height: 56vh;
-  padding: 150px 24px 60px;
+  min-height: 48svh;
+  padding: 130px 24px 48px;
 }
 
 .hero--page .hero__title {
@@ -65,7 +65,7 @@
 .hero--page .hero__sub { margin-bottom: 0; }
 
 /* Quote */
-.quote { padding: 40px 24px 100px; }
+.quote { padding: 24px 24px 64px; }
 
 .quote__panel {
   max-width: 780px;
@@ -98,7 +98,7 @@
 .featured {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 40px 24px 110px;
+  padding: 24px 24px 72px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: clamp(2rem, 5vw, 4.5rem);
@@ -130,7 +130,7 @@
 .about {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 24px 110px;
+  padding: 0 24px 72px;
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: clamp(2rem, 5vw, 4rem);
@@ -173,7 +173,7 @@
 .shop {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 24px 120px;
+  padding: 0 24px 80px;
 }
 
 .shop__head { text-align: center; margin-bottom: 2.6rem; }

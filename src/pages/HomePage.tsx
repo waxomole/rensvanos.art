@@ -31,7 +31,7 @@ export function HomePage() {
           </div>
         </Reveal>
         <div className="hero__frame glass reveal">
-          <img src={asset("art/artwork-01.svg")} alt={localized(ARTWORKS[0], "alt", lang)} loading="eager" />
+          <img src={asset("art/artwork-01.svg")} alt={localized(ARTWORKS[0], "alt", lang)} loading="eager" fetchPriority="high" decoding="async" />
         </div>
       </header>
 
@@ -58,7 +58,7 @@ export function HomePage() {
             </Link>
           </Reveal>
           <figure className="featured__figure glass reveal">
-            <img src={asset(featured.src)} alt={localized(featured, "alt", lang)} loading="lazy" />
+            <img src={asset(featured.src)} alt={localized(featured, "alt", lang)} loading="lazy" decoding="async" />
             <figcaption>{t.home.featuredCaption}</figcaption>
           </figure>
         </section>

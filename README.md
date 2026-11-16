@@ -46,15 +46,19 @@ npm run lint       # oxlint
   de pagina zelf rendert prima. Voor een portfolio-site met beperkte diepe links een acceptabele
   trade-off; sitemap.xml wijst crawlers naar de schone URL's.
 
-## Branding: palet kiezen
+## Branding: licht & donker
 
-Twee tweekleurige paletten zijn ingebouwd. Wissel door in álle 8 html-bestanden het
-`data-palette`-attribuut op `<html>` te veranderen:
+Twee thema's, geschakeld met de zon/maan-knop in de utility pil (rechtsboven). De keuze
+wordt in localStorage bewaard; eerste bezoek volgt `prefers-color-scheme`. Een klein
+inline script in `index.html` zet `data-theme` vóór de eerste paint (geen flits); het
+CSP-beleid staat precies díé script-hash toe.
 
-- `data-palette="delft"` — **Delfts & Mist**: porselein (`#e9edf1`) met Delfts blauwleisteen (`#1f2a33`) — huidige standaard (glas geoptimaliseerd voor contrast)
-- `data-palette="ink"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`)
+- `data-theme="light"` — **Inkt & Perkament**: warm crème (`#f6f2ea`) met sepia-zwart (`#23201b`)
+- `data-theme="dark"` — **Nacht**: diep inktblauw (`#12161b`) met warm krijt (`#e8e4da`)
 
-Alle kleuren lopen via custom properties in `src/styles/tokens.css`; een nieuw palet = één nieuw blok daar.
+Alle kleuren lopen via custom properties in `src/styles/tokens.css`; een nieuw thema = één nieuw blok daar.
+Aurora-bollen zijn pure radial-gradients (geen blur-filters) en de inktvlekken gebruiken
+een mask in de themakleur — beide passen zich automatisch aan elk thema aan.
 
 ## Kunst toevoegen
 
