@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import type { PageId } from "../data/site";
 import { Aurora } from "./Aurora";
+import { CursorGlow } from "./CursorGlow";
 import { InkTrail } from "./InkTrail";
 import { SiteFooter } from "./SiteFooter";
 import { SiteNav } from "./SiteNav";
@@ -21,6 +22,7 @@ export function Layout({ page, children }: LayoutProps) {
   return (
     <>
       <Aurora />
+      <CursorGlow />
       <InkTrail />
       <SiteNav page={page} open={menuOpen} onToggle={setMenuOpen} />
       <UtilityPill page={page} menuOpen={menuOpen} />

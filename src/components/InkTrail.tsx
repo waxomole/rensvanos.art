@@ -5,11 +5,11 @@ const IDLE_STOP_MS = 2000; // trail is fully faded well before this — stop the
 
 /**
  * Ink trail cursor: a fixed canvas that draws a fading pen stroke behind the
- * pointer — mouse, trackpad and touch alike. On touch, the stroke follows the
- * finger until the browser claims the gesture for scrolling (pointercancel),
- * which keeps scrolling buttery. Skipped entirely when the user prefers
- * reduced motion. The fade loop only runs while there is fresh ink on the
- * canvas, so an idle page costs nothing.
+ * pointer — mouse and trackpad. On touch the CursorGlow takes over (the ink
+ * stroke is too faint under the finger); here the stroke follows the pointer
+ * until it leaves. Skipped entirely when the user prefers reduced motion or
+ * has a coarse pointer. The fade loop only runs while there is fresh ink on
+ * the canvas, so an idle page costs nothing.
  */
 export function InkTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -18,6 +18,7 @@ export function InkTrail() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return; // touch gets the CursorGlow
 
     const context = canvas.getContext("2d");
     if (!context) return;
