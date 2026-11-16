@@ -3,6 +3,7 @@ import { useAutoHideHeader } from "../hooks/useAutoHideHeader";
 import { useT } from "../i18n/LangContext";
 import { InstagramIcon } from "./Aurora";
 import { LangSwitch } from "./LangSwitch";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface UtilityPillProps {
   page: import("../data/site").PageId;
@@ -10,7 +11,7 @@ interface UtilityPillProps {
   menuOpen: boolean;
 }
 
-/** Separate glass pill, top-right: language switch + Instagram. */
+/** Separate glass pill, top-right: language switch, theme toggle, Instagram. */
 export function UtilityPill({ page, menuOpen }: UtilityPillProps) {
   const t = useT();
   const hidden = useAutoHideHeader(menuOpen);
@@ -18,6 +19,7 @@ export function UtilityPill({ page, menuOpen }: UtilityPillProps) {
   return (
     <div className={hidden ? "utility is-hidden" : "utility"}>
       <LangSwitch currentPage={page} />
+      <ThemeToggle />
       <a href={SITE.instagram} target="_blank" rel="noopener" className="utility__insta" aria-label={t.nav.instagram}>
         <InstagramIcon />
       </a>

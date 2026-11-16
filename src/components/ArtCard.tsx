@@ -29,7 +29,7 @@ export function ArtCard({ art, index, onOpen }: ArtCardProps) {
         }
       }}
     >
-      <img className="art-card__img" src={asset(art.src)} alt={localized(art, "alt", lang)} loading="lazy" />
+      <img className="art-card__img" src={asset(art.src)} alt={localized(art, "alt", lang)} loading="lazy" decoding="async" />
       <div className="art-card__caption">
         <span className="art-card__title">{localized(art, "title", lang)}</span>
         <span className="art-card__tag">{localized(art, "tag", lang)}</span>

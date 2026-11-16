@@ -11,6 +11,8 @@ const nl = {
     commissions: "Commissies & Prints",
     menu: "Menu",
     instagram: "Instagram @r.os_art",
+    themeDark: "Donkere modus",
+    themeLight: "Lichte modus",
   },
   meta: {
     home: {
@@ -157,6 +159,8 @@ const en: typeof nl = {
     commissions: "Commissions & Prints",
     menu: "Menu",
     instagram: "Instagram @r.os_art",
+    themeDark: "Dark mode",
+    themeLight: "Light mode",
   },
   meta: {
     home: {

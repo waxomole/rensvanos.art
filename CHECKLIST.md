@@ -90,3 +90,17 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Delfts & Mist glass contrast re-tuned (whiter panels, stronger borders/shadows, deeper paper)
 - [ ] Verify the delft palette contrast on your screen after merge — iterate if still too subtle
 - [ ] Thorough ink-trail testing on your devices (mouse + trackpad; it stays off on touch)
+
+## 9. Performance & mobile polish (PR: vibe/perf-mobile-36781f)
+
+- [x] Performance: aurora blobs are pure gradients now (no giant blur filters), backdrop-blur radii halved, ink-trail fade loop stops when idle, unused font weight dropped, hero image prioritised
+- [x] Section gaps tightened sitewide (quote/featured/gallery/insta/shop/about)
+- [x] Footer slimmed to a compact signature panel
+- [x] Commission form fields can no longer overflow their panel (min-width:0 + full-width fields)
+- [x] Ink trail now follows touch too (stops gracefully when the browser claims the gesture for scrolling)
+- [x] "EN" underline removed in the utility pill
+- [x] Light/dark mode toggle (sun/moon) — light = Inkt & Perkament, dark = new Nacht palette; persisted, follows system preference on first visit, no flash on load (CSP-hashed bootstrap script)
+- [x] Delfts & Mist retired (didn't fit the style) — warm ink palette is light mode again
+- [x] Work page: drawings framed with `object-fit: contain` (never cropped), captions centered, glass panels carry the paper grain
+- [x] Mobile: 44px burger target, taller dropdown links, tap-highlight removed, svh hero heights
+- [ ] Check the dark palette on your devices — easy to re-tune in tokens.css
