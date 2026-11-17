@@ -65,10 +65,14 @@ een mask in de themakleur — beide passen zich automatisch aan elk thema aan.
 Vervang de placeholder-SVG's in `public/art/` door scans op volledige resolutie en pas het
 manifest `src/data/artworks.ts` aan (titel NL/EN, tag, jaar, status, alt-tekst). Zie CHECKLIST.md.
 
-## Instagram-embeds
+De Instagram-links staan alleen als icoon in de utility-pill en het kleinbeeldmenu;
+embeds zijn bewust verwijderd (de site toont origineel werk, geen iframes).
 
-URL's toevoegen/verwijderen in `INSTAGRAM_POSTS` in `src/data/artworks.ts`. Let op: een embed
-toont altijd de eerste dia van een carousel.
+## Voettekst-skyline
+
+`src/components/CityscapeLine.tsx` tekent bij elke keer laden één doorlopende pennenlijn:
+Hollandse gevels (trap-, klok- en puntgevel) met af en toe een windmolen, kerktoren of
+brugpyloon. De stad wordt willekeurig gekozen uit de `CITIES`-lijst — voeg gerust steden toe.
 
 ## Taal & teksten
 

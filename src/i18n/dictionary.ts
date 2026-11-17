@@ -71,11 +71,6 @@ const nl = {
     eyebrow: "Galerij",
     title: "Het werk",
     intro: "Inkttekeningen — architectuurportretten en fantasielanden. Klik op een werk voor detail en beschikbaarheid.",
-    instaEyebrow: "Tekentafel",
-    instaTitle: "Vers van de tekentafel",
-    instaIntroPrefix: "Werk in wording, details en processen — volg ",
-    instaIntroHandle: "@r.os_art",
-    instaIntroSuffix: " voor alles wat vers verschijnt.",
   },
   origins: {
     eyebrow: "Ontstaan",
@@ -273,11 +268,6 @@ const en: typeof nl = {
     eyebrow: "Gallery",
     title: "The work",
     intro: "Ink drawings — architectural portraits and fantasy lands. Click a work for detail and availability.",
-    instaEyebrow: "Drawing table",
-    instaTitle: "Fresh from the drawing table",
-    instaIntroPrefix: "Works in progress, details and process — follow ",
-    instaIntroHandle: "@r.os_art",
-    instaIntroSuffix: " for everything that appears fresh off the pen.",
   },
   origins: {
     eyebrow: "Origins",
