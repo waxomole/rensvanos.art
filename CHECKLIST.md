@@ -112,3 +112,12 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Cursor aurora glow follows the pointer on every device (Cloudflare-style light-up); on touch it replaces the too-faint ink stroke; scales up on tap; rAF stops when idle
 - [x] Commission form: fields now 16px (no iOS focus-zoom), native iOS input chrome removed, form panel edges aligned with the shop section
 - [ ] Verify the form right-edge on your iPhone 13 Pro after merge — if a gap remains, send a screenshot and I'll pinpoint it
+
+## 11. Pill polish round (PR: vibe/pill-polish-36781f)
+
+- [x] Cursor orb recoloured — Delft blue in light mode (no more orange), moonlit blue in dark; lazier, more flowing trailing motion
+- [x] Light-mode button glow switched from gold to the same cool blue (matches the dark 'Nacht' glow you liked)
+- [x] Two pills separated again on iPhone 13 Pro-size screens (single-pill collapse now only below 380px)
+- [x] Scrolling down: the pills merge into one round pen-nib button, which then fades out slowly; scrolling up brings both pills back, separated
+- [x] Nav pill anchored left on large screens (no longer centred)
+- [ ] Verify the merge-then-fade scroll behaviour + blue orb on your devices

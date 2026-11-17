@@ -1,9 +1,8 @@
-/* Navigation — glass pill; burger + dropdown below 700px */
+/* Navigation — glass pill, anchored left; burger + dropdown below 700px */
 .nav {
   position: fixed;
   top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 18px;
   z-index: 100;
   display: flex;
   flex-wrap: wrap;
@@ -17,7 +16,7 @@
   box-shadow: var(--glass-shadow), inset 0 1px 0 var(--edge-highlight);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.3s ease, background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
   will-change: transform, opacity;
   max-width: calc(100vw - 32px);
 }
@@ -68,9 +67,12 @@
 .utility__theme:hover { color: var(--ink); transform: rotate(12deg); }
 .utility__theme svg { width: 19px; height: 19px; display: block; }
 
-/* Auto-hide on scroll down, reveal on scroll up */
+/* Auto-hide on scroll down, reveal on scroll up.
+   Desktop: the pill slides up and away. Mobile (≤700px): the two pills
+   first merge into a single round pen button (.is-merged) which then fades
+   out slowly in place — see the media query below. */
 .nav.is-hidden {
-  transform: translate(-50%, -160%);
+  transform: translateY(-160%);
   opacity: 0;
   pointer-events: none;
 }
@@ -578,8 +580,29 @@
     gap: 0.8rem;
   }
 
-  /* Mobile nav has no translateX offset, so hide straight up. */
-  .nav.is-hidden { transform: translateY(-160%); }
+  /* Scrolling down: the utility pill tucks away and this pill merges into
+     a single round pen-nib button — the burger keeps its own glass
+     background, so the pill shell dissolves around it. */
+  .nav.is-merged {
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .nav.is-merged .nav__brand { display: none; }
+  .nav.is-merged .nav__burger span { display: none; }
+  .nav.is-merged .nav__burger svg { display: block; width: 22px; height: 22px; }
+
+  /* …then the merged pill fades out slowly, in place. Fading back in on
+     scroll-up uses the quicker base transition. */
+  .nav.is-hidden {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
 
   .hero { padding-top: 110px; }
   .hero--page { padding-top: 110px; }
@@ -591,9 +614,10 @@
   .form__row { grid-template-columns: 1fr; }
 }
 
-/* Very small screens: both pills collapse into ONE round pen-nib button.
-   Its menu carries the page links plus EN, dark mode and Instagram. */
-@media (max-width: 560px) {
+/* Very small screens (below iPhone SE width): both pills collapse into ONE
+   round pen-nib button. Its menu carries the page links plus EN, dark mode
+   and Instagram. Above 380px the two pills stay separated. */
+@media (max-width: 380px) {
   .utility { display: none; }
 
   .nav {
