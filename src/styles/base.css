@@ -217,8 +217,19 @@ html[data-theme="dark"] .glass::after {
   transform: translateY(0);
 }
 
+/* Gallery variant: the works slide in from the top-right and settle down,
+   like a fresh sheet laid on the table. Stagger is applied per card via an
+   inline transition-delay in ArtCard. */
+.reveal--sketch {
+  transform: translate(38px, -38px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--sketch.is-visible { transform: translate(0, 0); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .reveal--sketch { opacity: 1; transform: none; transition: none; }
   .art-card, .btn { transition: none; }
+  .ink-splash, .ink-trail { display: none; }
 }

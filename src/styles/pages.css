@@ -238,3 +238,131 @@
   color: var(--ink-soft);
   margin: 0 0 0.6rem;
 }
+
+/* Ontstaan — vertical timeline: a thread down the middle with dots that
+   stitch the media and text panels together, alternating left/right. */
+.timeline {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 8px 24px 8px;
+}
+
+.timeline__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The drawn thread — softly fading in at both ends. */
+.timeline__list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(var(--ink-rgb), 0.3) 5%,
+    rgba(var(--ink-rgb), 0.3) 95%,
+    transparent 100%
+  );
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.3rem 0;
+}
+
+/* The connecting dot — a pen-nib landing point on the thread. */
+.timeline__item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid rgba(var(--ink-rgb), 0.55);
+  box-shadow: 0 0 0 5px var(--paper);
+}
+
+.timeline__media { grid-column: 1; padding: 12px; }
+.timeline__card { grid-column: 2; padding: clamp(1.4rem, 3.5vw, 2.2rem); }
+
+.timeline__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  border-radius: calc(var(--radius-md) - 8px);
+  background: var(--surface);
+}
+
+.timeline__num {
+  display: block;
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--ink-faint);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.timeline__title {
+  font-size: 1.6rem;
+  margin: 0 0 0.55rem;
+}
+
+.timeline__body {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.timeline__item--flip .timeline__media { grid-column: 2; grid-row: 1; }
+.timeline__item--flip .timeline__card { grid-column: 1; grid-row: 1; text-align: right; }
+
+.timeline__outro {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+  text-align: center;
+}
+
+.timeline__outro p { color: var(--ink-soft); margin: 0; }
+.timeline__outro a { color: var(--ink); }
+
+@media (max-width: 700px) {
+  /* On small screens the thread sits on the left and all content flows
+     to the right of it, dot by dot. */
+  .timeline__list::before { left: 6px; transform: none; }
+
+  .timeline__item,
+  .timeline__item--flip {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.1rem 0 1.1rem 40px;
+  }
+
+  .timeline__item::after { left: 0; transform: translateY(-50%); }
+
+  .timeline__item .timeline__media,
+  .timeline__item .timeline__card,
+  .timeline__item--flip .timeline__media,
+  .timeline__item--flip .timeline__card {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
+  }
+}

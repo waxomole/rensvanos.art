@@ -1,6 +1,6 @@
 export type Lang = "nl" | "en";
 
-export const PAGES = ["home", "work", "about", "commissions"] as const;
+export const PAGES = ["home", "work", "origins", "about", "commissions"] as const;
 export type PageId = (typeof PAGES)[number];
 
 /**
@@ -12,12 +12,14 @@ export const PAGE_PATHS: Record<Lang, Record<PageId, string>> = {
   nl: {
     home: "/",
     work: "/werk",
+    origins: "/ontstaan",
     about: "/over-mij",
     commissions: "/commissies",
   },
   en: {
     home: "/en",
     work: "/en/work",
+    origins: "/en/origins",
     about: "/en/about",
     commissions: "/en/commissions",
   },

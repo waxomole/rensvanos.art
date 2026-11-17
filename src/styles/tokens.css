@@ -33,10 +33,9 @@ html[data-theme="light"] {
   --edge-highlight: rgba(255, 255, 255, 0.7);
   --backdrop: rgba(24, 23, 21, 0.45);
 
-  /* Cool daylight glow for buttons & the cursor aurora — Delft blue on cream.
-     (Matches the moonlit blue of dark mode, per the palette.) */
+  /* Cool daylight glow for buttons — matches the moonlit blue of dark mode,
+     so both themes share one accent. (Cursor effects use --ink-rgb.) */
   --halo: rgba(93, 134, 191, 0.38);
-  --glow-rgb: 93, 134, 191;
 }
 
 html[data-theme="dark"] {
@@ -64,7 +63,6 @@ html[data-theme="dark"] {
 
   /* Moonlit glow in dark mode — already palette-matched. */
   --halo: rgba(148, 170, 210, 0.32);
-  --glow-rgb: 148, 170, 210;
 }
 
 :root {

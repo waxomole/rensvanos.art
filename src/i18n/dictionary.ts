@@ -7,6 +7,7 @@ import type { Lang } from "../data/site";
 const nl = {
   nav: {
     work: "Werk",
+    origins: "Ontstaan",
     about: "Over mij",
     commissions: "Commissies & Prints",
     menu: "Menu",
@@ -24,6 +25,11 @@ const nl = {
       title: "Werk",
       description:
         "Galerie met inkttekeningen: architectuurportretten en fantasielanden, pen op papier. Bekijk de collectie van Rens van Os.",
+    },
+    origins: {
+      title: "Ontstaan",
+      description:
+        "Van eerste idee tot laatste inktlijn: zo groeit een tekening van Rens van Os, stap voor stap op de tekentafel in Woerden.",
     },
     about: {
       title: "Over mij",
@@ -70,6 +76,54 @@ const nl = {
     instaIntroPrefix: "Werk in wording, details en processen — volg ",
     instaIntroHandle: "@r.os_art",
     instaIntroSuffix: " voor alles wat vers verschijnt.",
+  },
+  origins: {
+    eyebrow: "Ontstaan",
+    title: "Van idee tot inktlijn",
+    intro:
+      "Elke tekening groeit langzaam: eerst een los idee, dan potloodlijnen die zoeken, en uiteindelijk pen en inkt die zich vastleggen. Dit is de route die elk werk aflegt.",
+    steps: [
+      {
+        title: "Het idee",
+        text:
+          "Alles begint met een plek die blijft hangen — een gevel in Woerden, een toren ergens op reis, of een gebouw dat alleen in mijn hoofd bestaat. Ik verzamel foto's, losse schetsen en herinneringen tot het beeld klopt.",
+        image: "art/artwork-03.svg",
+        alt: "Fantastisch stadsgezicht — het beginpunt van veel tekeningen",
+      },
+      {
+        title: "De schets",
+        text:
+          "Met potlood zoek ik de compositie: het standpunt, de verhoudingen, de lege ruimte tussen de lijnen. Vaak liggen er drie of vier opzetjes naast elkaar voordat er één blad mag blijven.",
+        image: "art/artwork-01.svg",
+        alt: "Schetsmatige opzet van een architectuurttekening",
+      },
+      {
+        title: "De lijn",
+        text:
+          "Dan pak ik de fineliner. Vanaf hier is alles definitief — geen gum meer, alleen durf. De buitenlijnen van het gebouw teken ik in één keer, met een rustige hand en een been op de rand van de tafel.",
+        image: "art/artwork-02.svg",
+        alt: "Inktlijnen die het gebouw definiëren",
+      },
+      {
+        title: "Laag voor laag",
+        text:
+          "Arceringen bouwen muur op muur: kruislijnen voor schaduw, dryinge streken voor baksteen, wit dat licht blijft. Dit is het langste stuk — een werk groeit zo wekenlang, een uur per avond.",
+        image: "art/artwork-04.svg",
+        alt: "Detail met arcering en schaduwopbouw",
+      },
+      {
+        title: "Getekend",
+        text:
+          "Als de laatste lijn droog is, signeer ik rechtsonder en zet ik het werk weg. Pas een dag later kijk ik er opnieuw naar — en dan pas zie ik of de plek uit mijn hoofd het ook op papier is geworden.",
+        image: "art/artwork-06.svg",
+        alt: "Afgewerkt werk met handtekening",
+      },
+    ],
+    ctaText: "Benieuwd wat er uit deze route rolt? De volledige collectie staat op de ",
+    ctaLink: "werkpagina",
+    ctaSuffix: ", en voor je eigen gebouw of fantasie kun je een ",
+    ctaLink2: "commissie aanvragen",
+    ctaSuffix2: ".",
   },
   about: {
     portraitPlaceholder: "Foto volgt",
@@ -155,6 +209,7 @@ const nl = {
 const en: typeof nl = {
   nav: {
     work: "Work",
+    origins: "Origins",
     about: "About me",
     commissions: "Commissions & Prints",
     menu: "Menu",
@@ -172,6 +227,11 @@ const en: typeof nl = {
       title: "Work",
       description:
         "Gallery of ink drawings: architectural portraits and fantasy lands, pen on paper. Browse the collection of Rens van Os.",
+    },
+    origins: {
+      title: "Origins",
+      description:
+        "From first idea to final ink line: how a drawing by Rens van Os grows, step by step, on the drawing table in Woerden.",
     },
     about: {
       title: "About me",
@@ -218,6 +278,54 @@ const en: typeof nl = {
     instaIntroPrefix: "Works in progress, details and process — follow ",
     instaIntroHandle: "@r.os_art",
     instaIntroSuffix: " for everything that appears fresh off the pen.",
+  },
+  origins: {
+    eyebrow: "Origins",
+    title: "From idea to ink line",
+    intro:
+      "Every drawing grows slowly: first a loose idea, then pencil lines that search, and finally pen and ink that commit. This is the route every work travels.",
+    steps: [
+      {
+        title: "The idea",
+        text:
+          "Everything starts with a place that sticks — a facade in Woerden, a tower from a trip, or a building that exists only in my head. I gather photos, loose sketches and memories until the picture feels right.",
+        image: "art/artwork-03.svg",
+        alt: "Fantastical cityscape — the starting point of many drawings",
+      },
+      {
+        title: "The sketch",
+        text:
+          "In pencil I search for the composition: the viewpoint, the proportions, the emptiness between the lines. Often three or four starts lie side by side before one sheet is allowed to stay.",
+        image: "art/artwork-01.svg",
+        alt: "Sketchy first layout of an architectural drawing",
+      },
+      {
+        title: "The line",
+        text:
+          "Then I pick up the fineliner. From here everything is final — no eraser, only commitment. I draw the outer lines of the building in one go, with a steady hand and an elbow braced on the table edge.",
+        image: "art/artwork-02.svg",
+        alt: "Ink lines defining the building",
+      },
+      {
+        title: "Layer by layer",
+        text:
+          "Hatching builds wall upon wall: cross-strokes for shadow, dry strokes for brick, white that stays light. This is the longest stretch — a work grows like this for weeks, an hour a night.",
+        image: "art/artwork-04.svg",
+        alt: "Detail with hatching and shadow build-up",
+      },
+      {
+        title: "Drawn",
+        text:
+          "When the last line is dry, I sign bottom-right and set the work aside. Only a day later do I look again — and only then do I see whether the place in my head truly made it onto paper.",
+        image: "art/artwork-06.svg",
+        alt: "Finished work with signature",
+      },
+    ],
+    ctaText: "Curious what this route produces? The full collection lives on the ",
+    ctaLink: "work page",
+    ctaSuffix: ", and for your own building or fantasy you can request a ",
+    ctaLink2: "commission",
+    ctaSuffix2: ".",
   },
   about: {
     portraitPlaceholder: "Photo to follow",
