@@ -9,6 +9,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_ITEMS = [
   { page: "work", labelKey: "work" },
+  { page: "origins", labelKey: "origins" },
   { page: "about", labelKey: "about" },
   { page: "commissions", labelKey: "commissions" },
 ] as const;

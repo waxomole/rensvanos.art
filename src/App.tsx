@@ -7,6 +7,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { CommissionsPage } from "./pages/CommissionsPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { OriginsPage } from "./pages/OriginsPage";
 import { WorkPage } from "./pages/WorkPage";
 
 /** Language context + shared chrome around one routed page. */
@@ -54,10 +55,12 @@ export function App() {
       <Routes>
         <Route path={PAGE_PATHS.nl.home} element={<Shell lang="nl" page="home"><HomePage /></Shell>} />
         <Route path={PAGE_PATHS.nl.work} element={<Shell lang="nl" page="work"><WorkPage /></Shell>} />
+        <Route path={PAGE_PATHS.nl.origins} element={<Shell lang="nl" page="origins"><OriginsPage /></Shell>} />
         <Route path={PAGE_PATHS.nl.about} element={<Shell lang="nl" page="about"><AboutPage /></Shell>} />
         <Route path={PAGE_PATHS.nl.commissions} element={<Shell lang="nl" page="commissions"><CommissionsPage /></Shell>} />
         <Route path={PAGE_PATHS.en.home} element={<Shell lang="en" page="home"><HomePage /></Shell>} />
         <Route path={PAGE_PATHS.en.work} element={<Shell lang="en" page="work"><WorkPage /></Shell>} />
+        <Route path={PAGE_PATHS.en.origins} element={<Shell lang="en" page="origins"><OriginsPage /></Shell>} />
         <Route path={PAGE_PATHS.en.about} element={<Shell lang="en" page="about"><AboutPage /></Shell>} />
         <Route path={PAGE_PATHS.en.commissions} element={<Shell lang="en" page="commissions"><CommissionsPage /></Shell>} />
         <Route path="*" element={<NotFoundRoute />} />

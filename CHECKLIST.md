@@ -121,4 +121,8 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Scrolling down: the pills merge into one round pen-nib button, which then fades out slowly; scrolling up brings both pills back, separated
 - [x] Nav pill anchored left on large screens (no longer centred)
 - [x] Tighter vertical rhythm sitewide — section bottom paddings 64–80px → 48px, section-head margins trimmed, page-hero and quote/featured gaps pulled in
-- [ ] Verify the merge-then-fade scroll behaviour, blue orb and the tighter spacing on your devices
+- [x] **Cursor orb removed** — no more glow following the cursor (too busy). The InkTrail keeps drawing the pen line on desktop; every tap/click now leaves a brief ink splash (blob + ring + droplets) in pure ink colour, so it always fits the palette — no theme-specific glow colour left to dislike
+- [x] **Water-drop pill merge** — scrolling down now plays two acts: the nav pill dissolves into the round pen-nib button (brand collapses smoothly, burger crossfades to the pen icon) while the utility pill slides onto it and shrinks like a drop docking, *then* the merged pill fades out slowly (0.65s pause + 1.1s fade); scrolling up reverses everything so the pills visibly pull apart
+- [x] **New page: Ontstaan / Origins** — vertical timeline with a drawn thread down the middle, dots connecting alternating photo + text panels (5 steps, NL + EN), accessible from the nav; placeholder artwork until process photos arrive
+- [x] **Works slide in from the top-right** — gallery cards enter diagonally with a soft ease-out settle and a per-card stagger; reveal moved to a wrapper so the card hover stays snappy
+- [ ] Verify the splash, the merge choreography and the timeline on your devices; process photos for Ontstaan when available

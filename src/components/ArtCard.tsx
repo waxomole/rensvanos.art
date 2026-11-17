@@ -9,31 +9,41 @@ interface ArtCardProps {
   onOpen: (index: number) => void;
 }
 
+/** Stagger between cards in one row, so they slide in as a loose wave. */
+const STAGGER_MS = 110;
+
 export function ArtCard({ art, index, onOpen }: ArtCardProps) {
   const lang = useLang();
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal<HTMLDivElement>();
   const open = () => onOpen(index);
 
   return (
-    <article
+    /* The reveal lives on a wrapper: the card inside keeps its own snappy
+       hover transition without clashing with the slow slide-in. */
+    <div
       ref={ref}
-      className="art-card glass reveal"
-      role="button"
-      tabIndex={0}
-      aria-label={localized(art, "title", lang)}
-      onClick={open}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          open();
-        }
-      }}
+      className="reveal reveal--sketch"
+      style={{ transitionDelay: `${(index % 3) * STAGGER_MS}ms` }}
     >
-      <img className="art-card__img" src={asset(art.src)} alt={localized(art, "alt", lang)} loading="lazy" decoding="async" />
-      <div className="art-card__caption">
-        <span className="art-card__title">{localized(art, "title", lang)}</span>
-        <span className="art-card__tag">{localized(art, "tag", lang)}</span>
-      </div>
-    </article>
+      <article
+        className="art-card glass"
+        role="button"
+        tabIndex={0}
+        aria-label={localized(art, "title", lang)}
+        onClick={open}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            open();
+          }
+        }}
+      >
+        <img className="art-card__img" src={asset(art.src)} alt={localized(art, "alt", lang)} loading="lazy" decoding="async" />
+        <div className="art-card__caption">
+          <span className="art-card__title">{localized(art, "title", lang)}</span>
+          <span className="art-card__tag">{localized(art, "tag", lang)}</span>
+        </div>
+      </article>
+    </div>
   );
 }
