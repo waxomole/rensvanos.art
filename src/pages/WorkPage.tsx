@@ -1,7 +1,6 @@
 import { useT } from "../i18n/LangContext";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { GalleryGrid } from "../components/GalleryGrid";
-import { InstagramSection } from "../components/InstagramSection";
 import { Reveal } from "../components/Reveal";
 
 export function WorkPage() {
@@ -25,8 +24,6 @@ export function WorkPage() {
           </Reveal>
           <GalleryGrid />
         </section>
-
-        <InstagramSection />
       </main>
     </>
   );

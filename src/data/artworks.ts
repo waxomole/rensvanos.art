@@ -89,14 +89,6 @@ export const ARTWORKS: Artwork[] = [
 ];
 
 /** Instagram post URLs; embeds render on the work page. Keep full post URLs. */
-export const INSTAGRAM_POSTS: readonly string[] = [
-  "https://www.instagram.com/p/DBUVVBWNnav/",
-  "https://www.instagram.com/p/CX3g2r8sKro/",
-  "https://www.instagram.com/p/Demfy2ODBVU/",
-  "https://www.instagram.com/p/DeCU6ixDH1o",
-  "https://www.instagram.com/p/DbNah1Qs9XK/",
-];
-
 /** Pick the field variant matching the active language. */
 export function localized<K extends "title" | "tag" | "alt">(art: Artwork, key: K, lang: Lang): string {
   if (lang === "en") {

@@ -126,3 +126,12 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] **New page: Ontstaan / Origins** — vertical timeline with a drawn thread down the middle, dots connecting alternating photo + text panels (5 steps, NL + EN), accessible from the nav; placeholder artwork until process photos arrive
 - [x] **Works slide in from the top-right** — gallery cards enter diagonally with a soft ease-out settle and a per-card stagger; reveal moved to a wrapper so the card hover stays snappy
 - [ ] Verify the splash, the merge choreography and the timeline on your devices; process photos for Ontstaan when available
+
+## 12. Ink & motion round (PR: vibe/ink-timeline-36781f, second batch)
+
+- [x] Ink splash is a real splash now — procedurally generated per tap: wavy blob edge (quadratic-spline lobe outline), 2–4 ejected spikes, satellite puddles, 6–9 droplets on random arcs and a drying ripple; random rotation/seed each time, so no two splashes match
+- [x] Splashes are skipped on interactive elements (links, buttons, form fields) and on scrolling gestures
+- [x] Pill merge choreography: starts sooner (4px hysteresis, gone by 48px from top), Apple-style curves `cubic-bezier(0.32, 0.72, 0, 1)`, merge morph ≈0.7–0.8s, 0.75s hold, 1.4s fade out; un-merge on scroll-up is equally slow and visible
+- [x] Instagram embeds removed sitewide (section, 5 post URLs, `.insta` CSS, iframe CSP `frame-src` dropped — stricter policy now); the @r.os_art icon stays in the utility pill + pen menu + footer
+- [x] Footer skyline: generative one-line Dutch cityscape (trap/klok/puntgevels + windmill, church spire, bridge pylon, high-rise), random city per page load — Woerden, Utrecht, Amsterdam, Rotterdam, Delft, Den Haag, Gouda, Leiden, Oudewater, Montfoort
+- [ ] Verify splash feel + merge timing on your iPhone; add real cities/buildings to `CITIES` in CityscapeLine.tsx if you'd like specific ones
