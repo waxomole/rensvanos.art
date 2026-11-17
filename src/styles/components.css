@@ -597,17 +597,18 @@
     transition: opacity 0.5s ease 0.15s;
   }
 
-  /* Cinematic durations, both directions — scrolling down merges over
-     ~0.7s and the un-merge on the way back up is just as deliberate. */
+  /* Directional choreography: merging down is one curve set; scrolling back
+     up is deliberately slower still — the dots swell back into two pills
+     over a full second, so the un-merge is unmistakably visible. */
   .nav {
-    transition: transform 0.55s ease, opacity 0.7s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.5s ease, background 0.55s ease, padding 0.7s cubic-bezier(0.32, 0.72, 0, 1),
-      border-color 0.55s ease;
+    transition: transform 0.8s ease, opacity 1.2s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.65s ease, background 0.7s ease, padding 0.9s cubic-bezier(0.32, 0.72, 0, 1),
+      border-color 0.7s ease;
   }
 
   .utility {
-    transition: transform 0.75s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.55s ease 0.1s,
-      box-shadow 0.5s ease, background 0.5s ease;
+    transition: transform 1.15s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.9s ease 0.35s,
+      box-shadow 0.65s ease, background 0.65s ease;
   }
 
   /* Scrolling down, act one — the drops pull together: the nav pill

@@ -135,3 +135,9 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Instagram embeds removed sitewide (section, 5 post URLs, `.insta` CSS, iframe CSP `frame-src` dropped — stricter policy now); the @r.os_art icon stays in the utility pill + pen menu + footer
 - [x] Footer skyline: generative one-line Dutch cityscape (trap/klok/puntgevels + windmill, church spire, bridge pylon, high-rise), random city per page load — Woerden, Utrecht, Amsterdam, Rotterdam, Delft, Den Haag, Gouda, Leiden, Oudewater, Montfoort
 - [ ] Verify splash feel + merge timing on your iPhone; add real cities/buildings to `CITIES` in CityscapeLine.tsx if you'd like specific ones
+
+## 13. Header cleanup + un-merge timing
+
+- [x] No more double headers — page kickers/titles appear once; the intro text now sits directly under the title in the hero (Werk, Commissions, and About lost their duplicated eyebrow+heading block; Ontstaan already followed this pattern)
+- [x] Un-merge on scroll-up clearly slower: pills pull apart over ~1.15s (utility) / ~1.2s opacity (nav), with the utility drop following 0.35s behind so the swell reads in sequence
+- [ ] Feel the un-merge pace on your iPhone — one more nudge slower is a one-line change

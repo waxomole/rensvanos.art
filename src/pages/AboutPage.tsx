@@ -33,8 +33,6 @@ export function AboutPage() {
             </div>
           </figure>
           <Reveal className="about__text">
-            <p className="eyebrow">{a.eyebrow}</p>
-            <h2>{a.title}</h2>
             {a.paragraphs.map((paragraph) => (
               <p key={paragraph.slice(0, 24)}>{paragraph}</p>
             ))}

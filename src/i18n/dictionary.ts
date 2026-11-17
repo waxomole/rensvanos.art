@@ -132,7 +132,6 @@ const nl = {
   },
   commissions: {
     kicker: "Te koop & op aanvraag",
-    eyebrow: "Te koop",
     title: "Commissies & Prints",
     intro: "Wil je een werk aan de muur, of juist jouw eigen gebouw in lijn vastgelegd? Beide kan.",
     printsCard: {
@@ -329,7 +328,6 @@ const en: typeof nl = {
   },
   commissions: {
     kicker: "For sale & on request",
-    eyebrow: "For sale",
     title: "Commissions & Prints",
     intro: "Want a work on your wall, or your own building captured in line? Both are possible.",
     printsCard: {

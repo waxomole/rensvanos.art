@@ -12,16 +12,12 @@ export function WorkPage() {
         <Reveal>
           <p className="hero__kicker">{t.work.eyebrow}</p>
           <h1 className="hero__title">{t.work.title}</h1>
+          <p className="hero__sub">{t.work.intro}</p>
         </Reveal>
       </header>
 
       <main>
         <section className="gallery" id="collectie">
-          <Reveal className="gallery__head">
-            <p className="eyebrow">{t.work.eyebrow}</p>
-            <h2>{t.work.title}</h2>
-            <p className="gallery__intro">{t.work.intro}</p>
-          </Reveal>
           <GalleryGrid />
         </section>
       </main>
