@@ -120,4 +120,5 @@ Tick items off as they arrive. Everything marked **(blocker)** literally blocks 
 - [x] Two pills separated again on iPhone 13 Pro-size screens (single-pill collapse now only below 380px)
 - [x] Scrolling down: the pills merge into one round pen-nib button, which then fades out slowly; scrolling up brings both pills back, separated
 - [x] Nav pill anchored left on large screens (no longer centred)
-- [ ] Verify the merge-then-fade scroll behaviour + blue orb on your devices
+- [x] Tighter vertical rhythm sitewide — section bottom paddings 64–80px → 48px, section-head margins trimmed, page-hero and quote/featured gaps pulled in
+- [ ] Verify the merge-then-fade scroll behaviour, blue orb and the tighter spacing on your devices
