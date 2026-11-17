@@ -13,16 +13,12 @@ export function CommissionsPage() {
         <Reveal>
           <p className="hero__kicker">{c.kicker}</p>
           <h1 className="hero__title">{c.title}</h1>
+          <p className="hero__sub">{c.intro}</p>
         </Reveal>
       </header>
 
       <main>
         <section className="shop" id="commissies">
-          <Reveal className="shop__head">
-            <p className="eyebrow">{c.eyebrow}</p>
-            <h2>{c.title}</h2>
-            <p className="gallery__intro">{c.intro}</p>
-          </Reveal>
           <div className="shop__cards">
             <article className="glass shop__card reveal">
               <h3>{c.printsCard.heading}</h3>
