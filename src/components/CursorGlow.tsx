@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 const SIZE = 260;
-const LERP = 0.14; // trailing smoothness — lower = lazier glow
+const LERP = 0.1; // trailing smoothness — lower = lazier, more flowing glow
 const IDLE_STOP_MS = 1600;
 
 /**

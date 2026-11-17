@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { PAGE_PATHS, SITE, type PageId } from "../data/site";
-import { useAutoHideHeader } from "../hooks/useAutoHideHeader";
 import { useEscapeKey } from "../hooks/useEscapeKey";
 import { useT } from "../i18n/LangContext";
 import { InstagramIcon } from "./Aurora";
@@ -27,20 +26,22 @@ function PenNibIcon() {
 interface SiteNavProps {
   page: PageId;
   open: boolean;
+  /** Scrolling down — merge into the single pen button, then fade. */
+  hidden: boolean;
   onToggle: (open: boolean) => void;
 }
 
 /**
- * Glass pill with brand + page links on desktop; below 700px a compact
- * corner pill with a glass burger button and a dropdown menu; below 560px
- * brand and utility pill collapse into a single round pen-nib button whose
- * menu carries the page links plus EN, dark mode and Instagram. Scrolling
- * down fades the pill out; scrolling up brings it back.
+ * Glass pill with brand + page links on desktop (anchored left); below
+ * 700px a compact corner pill with a glass burger button; below 380px both
+ * top pills collapse into a single round pen-nib button whose menu carries
+ * the page links plus EN, dark mode and Instagram. Scrolling down merges
+ * the two pills into that single pen button and fades it out slowly;
+ * scrolling up brings both pills back, separated.
  */
-export function SiteNav({ page, open, onToggle }: SiteNavProps) {
+export function SiteNav({ page, open, hidden, onToggle }: SiteNavProps) {
   const t = useT();
   const navRef = useRef<HTMLElement>(null);
-  const hidden = useAutoHideHeader(open);
 
   useEscapeKey(open, () => onToggle(false));
 
@@ -55,7 +56,7 @@ export function SiteNav({ page, open, onToggle }: SiteNavProps) {
 
   const classes = ["nav"];
   if (open) classes.push("is-open");
-  if (hidden) classes.push("is-hidden");
+  if (hidden) classes.push("is-merged", "is-hidden");
 
   const close = () => onToggle(false);
 
